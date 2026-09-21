@@ -2,25 +2,30 @@
 #SBATCH --account=pawsey0272
 #SBATCH --partition=copy
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=24
+#SBATCH --mem=43G
 #SBATCH --time=12:00:00
 #SBATCH --output=autocal_%j.log
 #SBATCH --error=autocal_%j.log
 
-obsnum=1447262000
+# use ram copy 
+# update refant 
 
+module load singularity/4.1.0-slurm
+
+obsnum=1447262000
 solutions="${obsnum}_test_solutions.bin"
 
-# ask Natasha 
+# select any working antenna (read from meta? python) 
 refant=21
+
+
 
 # if [[ -d "${obsnum}" ]]
 # then 
 # else
 # fi 
 
-module load singularity/4.1.0-slurm
 
 cd "${obsnum}" || exit 1
 
