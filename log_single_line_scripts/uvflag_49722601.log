@@ -1,0 +1,5 @@
+Loading GLEAM-X profile...
+Traceback (most recent call last):
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 18, in <module>
+    from casacore.tables import table, taql, maketabdesc, makescacoldesc
+ModuleNotFoundError: No module named 'casacore'

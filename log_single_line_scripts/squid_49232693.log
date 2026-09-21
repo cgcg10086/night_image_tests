@@ -1,0 +1,7 @@
+Loading GLEAM-X profile...
+Working directory: /scratch/pawsey0272/gcchen/test2_container_single_tests_2025
+Container: /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img
+Observation: 1379799704
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img giant-squid submit-conv -p avg_time_res=4,avg_freq_res=160,flag_edge_width=80,output=ms -d scratch 1379799704
+21:22:02 [INFO] Submitted 1379799704 as MWA ASVO job ID 1092600
+21:22:02 [INFO] Submitted 1 obsids for conversion.

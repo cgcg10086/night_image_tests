@@ -1,0 +1,111 @@
+Loading GLEAM-X profile...
+/scratch/pawsey0272/gcchen/test2_container_single_command_tests/1447262000
+drwxrwx--- 17 gcchen pawsey0272 4096 Sep 20 21:48 1447262000.ms
+-rw-r--r-- 1 gcchen gcchen 7.6K Sep 20 21:48 1447262000.ms/table.dat
++ base=/scratch/pawsey0272/gcchen
++ for project in test2_container_single_command_tests test2_container_15Sep26_pipeline
++ echo 'Checking test2_container_single_command_tests'
+Checking test2_container_single_command_tests
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img chgcentre /scratch/pawsey0272/gcchen/test2_container_single_command_tests/1447262000/1447262000.ms
+A program to change the phase centre of a measurement set.
+Written by André Offringa (offringa@gmail.com).
+
+Current phase direction:
+  04h39m54.29s -27d00m00s
+Zenith is at:
+  04h41m18.907s -26d36m05.732s (04h38m50.431s -26d36m10.881s - 04h43m43.367s -26d36m00.701s)
+Min-w direction is at:
+  04h41m35.808s -26d51m15.157s
++ for project in test2_container_single_command_tests test2_container_15Sep26_pipeline
++ echo 'Checking test2_container_15Sep26_pipeline'
+Checking test2_container_15Sep26_pipeline
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img chgcentre /scratch/pawsey0272/gcchen/test2_container_15Sep26_pipeline/1447262000/1447262000.ms
+terminate called after throwing an instance of 'casacore::AipsError'
+  what():  FilebufIO::readBlock - incorrect number of bytes read for file /scratch/pawsey0272/gcchen/test2_container_15Sep26_pipeline/1447262000/1447262000.ms/table.dat
+/var/spool/slurmd/job49719238/slurm_script: line 33: 63332 Aborted                 singularity exec "$GXCONTAINER" chgcentre "$base/$project/1447262000/1447262000.ms"
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img hyperdrive di-calibrate --uvw-min 75lambda --max-iterations 500 --num-sources 500 --uvw-max 1667lambda --beam-file /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/data/mwa_pb/mwa_full_embedded_element_pattern.h5 --outputs 1447262000_test_solutions.bin -d 1447262000.ms 1447262000.metafits -s /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/models/GGSM.txt
+[2026-09-20T14:12:08Z INFO ] hyperdrive di-calibrate 0.8.0
+[2026-09-20T14:12:08Z INFO ] Compiled on git commit hash: 0eb4e67
+[2026-09-20T14:12:08Z INFO ]             Tue, 15 Sep 2026 09:10:32 +0000
+[2026-09-20T14:12:08Z INFO ]          with compiler rustc 1.98.1 (48a229cea 2026-09-01)
+[2026-09-20T14:12:08Z INFO ] 
+[2026-09-20T14:12:15Z INFO ] DI calibrating obsid 1447262000
+[2026-09-20T14:12:15Z INFO ] ├ from measurement set 1447262000.ms
+[2026-09-20T14:12:15Z INFO ] │ with metafits 1447262000.metafits
+[2026-09-20T14:12:15Z INFO ] 
+[2026-09-20T14:12:15Z INFO ] Coordinates
+[2026-09-20T14:12:15Z INFO ] ├                    RA        Dec
+[2026-09-20T14:12:15Z INFO ] │ Phase centre:       69.9762° -27.0000° (J2000)
+[2026-09-20T14:12:15Z INFO ] │ Pointing centre:    70.3270° -26.7539°
+[2026-09-20T14:12:15Z INFO ] ├ Array position:    116.6737° -26.7002° 752.5337m
+[2026-09-20T14:12:15Z INFO ] │                    Longitude Latitude  Height
+[2026-09-20T14:12:15Z INFO ] 
+[2026-09-20T14:12:15Z INFO ] Tile info
+[2026-09-20T14:12:15Z INFO ] ├ 184 total
+[2026-09-20T14:12:15Z INFO ] │ 184 unflagged
+[2026-09-20T14:12:15Z INFO ] 
+[2026-09-20T14:12:15Z INFO ] Time info
+[2026-09-20T14:12:15Z INFO ] ├ Resolution: 4 s
+[2026-09-20T14:12:15Z INFO ] │ No reader averaging
+[2026-09-20T14:12:15Z INFO ] ├ First obs timestamp: 2025-11-15T17:13:04 UTC | 1447262002.00
+[2026-09-20T14:12:15Z INFO ] ├ Available timesteps: [0..74)
+[2026-09-20T14:12:15Z INFO ] │ Unflagged timesteps: [0..74)
+[2026-09-20T14:12:15Z INFO ] ├ Using timesteps:     [0..74)
+[2026-09-20T14:12:15Z INFO ] │ First timestamp:     2025-11-15T17:13:04 UTC (+0.00s)
+[2026-09-20T14:12:15Z INFO ] │ Last timestamp :     2025-11-15T17:17:56 UTC (+292.00s)
+[2026-09-20T14:12:15Z INFO ] │ First LMST: 69.718737° (J2000)
+[2026-09-20T14:12:15Z INFO ] └ DUT1: 0.0851438130 s
+[2026-09-20T14:12:15Z INFO ] 
+[2026-09-20T14:12:15Z INFO ] Channel info
+[2026-09-20T14:12:15Z INFO ] ├ Resolution: 40.00 kHz
+[2026-09-20T14:12:15Z INFO ] │ No Reader averaging
+[2026-09-20T14:12:15Z INFO ] ├ Total number of fine channels:     768
+[2026-09-20T14:12:15Z INFO ] │ Number of unflagged fine channels: 672
+[2026-09-20T14:12:15Z INFO ] ├ Number of fine chans per coarse channel: 32
+[2026-09-20T14:12:15Z INFO ] │ Flags per coarse channel: [0, 1, 30, 31]
+[2026-09-20T14:12:15Z INFO ] ├ First fine-channel:           184.960 MHz
+[2026-09-20T14:12:15Z INFO ] │ Last fine-channel:            215.640 MHz
+[2026-09-20T14:12:15Z INFO ] ├ First unflagged fine-channel: 185.040 MHz
+[2026-09-20T14:12:15Z INFO ] │ Last unflagged fine-channel:  215.560 MHz
+[2026-09-20T14:12:15Z INFO ] 
+[2026-09-20T14:12:16Z INFO ] Beam info
+[2026-09-20T14:12:16Z INFO ] ├ Type: FEE
+[2026-09-20T14:12:16Z INFO ] ├ Using dead dipole information (77 tiles affected)
+[2026-09-20T14:12:16Z INFO ] ├ Ideal dipole delays: [ 0  0  0  0
+[2026-09-20T14:12:16Z INFO ] │                        0  0  0  0
+[2026-09-20T14:12:16Z INFO ] │                        0  0  0  0
+[2026-09-20T14:12:16Z INFO ] │                        0  0  0  0]
+[2026-09-20T14:12:16Z INFO ] └ File: /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/data/mwa_pb/mwa_full_embedded_element_pattern.h5
+[2026-09-20T14:12:16Z INFO ] 
+[2026-09-20T14:12:16Z INFO ] Sky- and beam-modelling info
+[2026-09-20T14:12:16Z INFO ] ├ Using CPU with double precision
+[2026-09-20T14:12:16Z INFO ] │ x86_64 CPU (AVX2 available)
+[2026-09-20T14:12:16Z INFO ] 
+[2026-09-20T14:12:26Z INFO ] Sky model info
+[2026-09-20T14:12:26Z INFO ] ├ Source list contains 386408 sources
+[2026-09-20T14:12:26Z INFO ] │ (386409 components, 293880 points, 92529 Gaussians, 0 shapelets)
+[2026-09-20T14:12:26Z INFO ] ├ Using 500 sources with a total of 500 components
+[2026-09-20T14:12:26Z INFO ] │ 445 points, 55 Gaussians, 0 shapelets
+[2026-09-20T14:12:26Z INFO ] 
+[2026-09-20T14:12:26Z INFO ] DI calibration set up
+[2026-09-20T14:12:26Z INFO ] ├ 1 calibration timeblocks, 672 calibration chanblocks
+[2026-09-20T14:12:26Z INFO ] │ 74 timesteps per timeblock
+[2026-09-20T14:12:26Z INFO ] ├ Calibrating with 12573 of 16836 baselines
+[2026-09-20T14:12:26Z INFO ] │ Minimum UVW cutoff: 75λ (112.254m)
+[2026-09-20T14:12:26Z INFO ] │ Maximum UVW cutoff: 1667λ (2495.028m)
+[2026-09-20T14:12:26Z INFO ] │ (Used obs. centroid frequency 200.3 MHz to convert lambdas to metres)
+[2026-09-20T14:12:26Z INFO ] ├ Chanblocks will stop iterating
+[2026-09-20T14:12:26Z INFO ] │ - when the iteration difference is less than 1e-8 (stop threshold)
+[2026-09-20T14:12:26Z INFO ] │ - or after 500 iterations.
+[2026-09-20T14:12:26Z INFO ] │ Chanblocks with an iteration diff. less than 1e-4 are considered converged (min. threshold)
+[2026-09-20T14:12:26Z INFO ] └ Writing calibration solutions to: 1447262000_test_solutions.bin
+[2026-09-20T14:12:26Z INFO ] 
+/var/spool/slurmd/job49719238/slurm_script: line 58: 63368 Killed                  singularity exec "$GXCONTAINER" hyperdrive di-calibrate --uvw-min 75lambda --max-iterations 500 --num-sources 500 --uvw-max 1667lambda --beam-file "${GXMWAPB}/mwa_full_embedded_element_pattern.h5" --outputs "$solutions" -d "${obsnum}.ms" "${obsnum}.metafits" -s "${GXBASE}/models/GGSM.txt"
++ singularity run /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img hyperdrive solutions-plot --max-amp 2 -m 1447262000.metafits 1447262000_test_solutions_ref.bin
+[2026-09-20T14:12:42Z INFO ] hyperdrive solutions-plot 0.8.0
+[2026-09-20T14:12:42Z INFO ] Compiled on git commit hash: 0eb4e67
+[2026-09-20T14:12:42Z INFO ]             Tue, 15 Sep 2026 09:10:32 +0000
+[2026-09-20T14:12:42Z INFO ]          with compiler rustc 1.98.1 (48a229cea 2026-09-01)
+[2026-09-20T14:12:42Z INFO ] 
+Error: No such file or directory (os error 2)
+[2026-09-20T22:12:42.711] error: Detected 1 oom_kill event in StepId=49719238.batch. Some of the step tasks have been OOM Killed.

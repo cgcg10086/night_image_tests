@@ -1,0 +1,39 @@
+Loading GLEAM-X profile...
+Traceback (most recent call last):
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 250, in <module>
+    main()
+    ~~~~^^
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 236, in main
+    d = chan_avg(mset, args.column, stride=50000)
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 115, in chan_avg
+    data_avg_amp = np.full((mset.filtered.nrows(), 4), np.nan, dtype=np.complex_)
+                                                                     ^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/numpy/__init__.py", line 781, in __getattr__
+    raise AttributeError(
+    ...<3 lines>...
+    )
+AttributeError: `np.complex_` was removed in the NumPy 2.0 release. Use `np.complex128` instead.
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 238, in partial_apport_excepthook
+    return apport_excepthook(binary, exc_type, exc_obj, exc_tb)
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 152, in apport_excepthook
+    os.open(pr_filename, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o640), "wb"
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 30] Read-only file system: '/var/crash/_opt_gleamx-python_bin_ms_flag_by_uvdist.py.27938.crash'
+
+Original exception was:
+Traceback (most recent call last):
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 250, in <module>
+    main()
+    ~~~~^^
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 236, in main
+    d = chan_avg(mset, args.column, stride=50000)
+  File "/opt/gleamx-python/bin/ms_flag_by_uvdist.py", line 115, in chan_avg
+    data_avg_amp = np.full((mset.filtered.nrows(), 4), np.nan, dtype=np.complex_)
+                                                                     ^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/numpy/__init__.py", line 781, in __getattr__
+    raise AttributeError(
+    ...<3 lines>...
+    )
+AttributeError: `np.complex_` was removed in the NumPy 2.0 release. Use `np.complex128` instead.

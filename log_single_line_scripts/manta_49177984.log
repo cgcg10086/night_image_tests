@@ -1,0 +1,12 @@
+Loading GLEAM-X profile...
+manta-ray-client version 3.0.1
+Connecting to MWA ASVO (asvo.mwatelescope.org:443)...
+Connected to MWA ASVO
+Submitted job: 1092560 
+Connecting to MWA ASVO Notifier...
+Connected to MWA ASVO Notifier
+Queued: Job id: 1092560 Obs id: 1346019088 type: conversion
+Retrieving files from archive Job id: 1092560 Obs id: 1346019088 type: 
+conversion
+Preprocessing Job id: 1092560 Obs id: 1346019088 type: conversion
+Error: Control connection lost, exiting

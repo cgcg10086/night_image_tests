@@ -1,0 +1,20 @@
+Loading GLEAM-X profile...
+manta-ray-client version 3.0.1
+Connecting to MWA ASVO (asvo.mwatelescope.org:443)...
+Connected to MWA ASVO
+Submitted job: 1095163 
+Connecting to MWA ASVO Notifier...
+Connected to MWA ASVO Notifier
+Queued: Job id: 1095163 Obs id: 1447262000 type: conversion
+Retrieving files from archive Job id: 1095163 Obs id: 1447262000 type: 
+conversion
+Preprocessing Job id: 1095163 Obs id: 1447262000 type: conversion
+Delivering Job id: 1095163 Obs id: 1447262000 type: conversion
+Ready on /scratch: Job id: 1095163 Obs id: 1447262000 type: conversion path: 
+/scratch/mwasci/asvo/1095163, size: 47221756952 bytes
+(
+    '[magenta]Copying job to the directory:[/magenta] ',
+    '/scratch/pawsey0272/gcchen/test2_container_single_command_tests/1095163, 
+Job id: [bold white]1095163[/bold white]'
+)
+mwa_client finished successfully

@@ -1,0 +1,27 @@
+Loading GLEAM-X profile...
+/scratch/pawsey0272/gcchen/test2_container_single_command_tests/1447262000
+drwxrwx--- 17 gcchen pawsey0272 4096 Sep 20 15:33 1447262000.ms
+-rw-r--r-- 1 gcchen gcchen 7.6K Sep 20 15:33 1447262000.ms/table.dat
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img hyperdrive di-calibrate --uvw-min 75lambda --max-iterations 500 --num-sources 500 --uvw-max 1667lambda --beam-file /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/data/mwa_pb/mwa_full_embedded_element_pattern.h5 --outputs 1447262000_test_solutions.bin -d 1447262000.metafits -s /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/models/GGSM.txt
+[2026-09-20T13:33:04Z INFO ] hyperdrive di-calibrate 0.8.0
+[2026-09-20T13:33:04Z INFO ] Compiled on git commit hash: 0eb4e67
+[2026-09-20T13:33:04Z INFO ]             Tue, 15 Sep 2026 09:10:32 +0000
+[2026-09-20T13:33:04Z INFO ]          with compiler rustc 1.98.1 (48a229cea 2026-09-01)
+[2026-09-20T13:33:04Z INFO ] 
+Error: Received only a metafits file; a uvfits file, a measurement set or gpubox files are required.
+
+Supported file formats:
+    metafits:         .metafits, _metafits.fits
+    measurement sets: .ms
+    uvfits files:     .uvfits
+    gpubox files (regex): .*gpubox.*\.fits$
+    MWAX files (regex):   \d{10}_\d{8}(.)?\d{6}_ch\d{3}_\d{3}\.fits$
+
+See for more info: https://MWATelescope.github.io/mwa_hyperdrive/defs/vis_formats_read.html
++ singularity run /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img hyperdrive solutions-plot --max-amp 2 -m 1447262000.metafits 1447262000_test_solutions_ref.bin
+[2026-09-20T13:33:04Z INFO ] hyperdrive solutions-plot 0.8.0
+[2026-09-20T13:33:04Z INFO ] Compiled on git commit hash: 0eb4e67
+[2026-09-20T13:33:04Z INFO ]             Tue, 15 Sep 2026 09:10:32 +0000
+[2026-09-20T13:33:04Z INFO ]          with compiler rustc 1.98.1 (48a229cea 2026-09-01)
+[2026-09-20T13:33:04Z INFO ] 
+Error: No such file or directory (os error 2)

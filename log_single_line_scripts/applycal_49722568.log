@@ -1,0 +1,8 @@
+Loading GLEAM-X profile...
+Opening measurement set...DONE
+Adding column 'CORRECTED_DATA'... DONE
+Counting timesteps... DONE (74 timesteps)
+Checking solutions file... DONE
+Applying solutions...
+- Interval 1/1 (0-1259480)
+  Antenna1: (nan,nan)

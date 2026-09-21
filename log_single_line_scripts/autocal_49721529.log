@@ -1,0 +1,791 @@
+Loading GLEAM-X profile...
+/scratch/pawsey0272/gcchen/test2_container_single_command_tests/1447262000
+drwxrwx--- 17 gcchen pawsey0272 4096 Sep 20 23:02 1447262000.ms
+-rw-r--r-- 1 gcchen gcchen 7.6K Sep 20 23:02 1447262000.ms/table.dat
++ base=/scratch/pawsey0272/gcchen
++ for project in test2_container_single_command_tests test2_container_15Sep26_pipeline
++ echo 'Checking test2_container_single_command_tests'
+Checking test2_container_single_command_tests
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img chgcentre /scratch/pawsey0272/gcchen/test2_container_single_command_tests/1447262000/1447262000.ms
+A program to change the phase centre of a measurement set.
+Written by André Offringa (offringa@gmail.com).
+
+Current phase direction:
+  04h39m54.29s -27d00m00s
+Zenith is at:
+  04h41m18.907s -26d36m05.732s (04h38m50.431s -26d36m10.881s - 04h43m43.367s -26d36m00.701s)
+Min-w direction is at:
+  04h41m35.808s -26d51m15.157s
++ for project in test2_container_single_command_tests test2_container_15Sep26_pipeline
++ echo 'Checking test2_container_15Sep26_pipeline'
+Checking test2_container_15Sep26_pipeline
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img chgcentre /scratch/pawsey0272/gcchen/test2_container_15Sep26_pipeline/1447262000/1447262000.ms
+terminate called after throwing an instance of 'casacore::AipsError'
+  what():  FilebufIO::readBlock - incorrect number of bytes read for file /scratch/pawsey0272/gcchen/test2_container_15Sep26_pipeline/1447262000/1447262000.ms/table.dat
+/var/spool/slurmd/job49721529/slurm_script: line 33: 81864 Aborted                 singularity exec "$GXCONTAINER" chgcentre "$base/$project/1447262000/1447262000.ms"
++ singularity exec /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img hyperdrive di-calibrate --uvw-min 75lambda --max-iterations 500 --num-sources 500 --uvw-max 1667lambda --beam-file /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/data/mwa_pb/mwa_full_embedded_element_pattern.h5 --outputs 1447262000_test_solutions.bin -d 1447262000.ms 1447262000.metafits -s /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/models/GGSM.txt
+[2026-09-20T15:03:45Z INFO ] hyperdrive di-calibrate 0.8.0
+[2026-09-20T15:03:45Z INFO ] Compiled on git commit hash: 0eb4e67
+[2026-09-20T15:03:45Z INFO ]             Tue, 15 Sep 2026 09:10:32 +0000
+[2026-09-20T15:03:45Z INFO ]          with compiler rustc 1.98.1 (48a229cea 2026-09-01)
+[2026-09-20T15:03:45Z INFO ] 
+[2026-09-20T15:03:52Z INFO ] DI calibrating obsid 1447262000
+[2026-09-20T15:03:52Z INFO ] ├ from measurement set 1447262000.ms
+[2026-09-20T15:03:52Z INFO ] │ with metafits 1447262000.metafits
+[2026-09-20T15:03:52Z INFO ] 
+[2026-09-20T15:03:52Z INFO ] Coordinates
+[2026-09-20T15:03:52Z INFO ] ├                    RA        Dec
+[2026-09-20T15:03:52Z INFO ] │ Phase centre:       69.9762° -27.0000° (J2000)
+[2026-09-20T15:03:52Z INFO ] │ Pointing centre:    70.3270° -26.7539°
+[2026-09-20T15:03:52Z INFO ] ├ Array position:    116.6737° -26.7002° 752.5337m
+[2026-09-20T15:03:52Z INFO ] │                    Longitude Latitude  Height
+[2026-09-20T15:03:52Z INFO ] 
+[2026-09-20T15:03:52Z INFO ] Tile info
+[2026-09-20T15:03:52Z INFO ] ├ 184 total
+[2026-09-20T15:03:52Z INFO ] │ 184 unflagged
+[2026-09-20T15:03:52Z INFO ] 
+[2026-09-20T15:03:52Z INFO ] Time info
+[2026-09-20T15:03:52Z INFO ] ├ Resolution: 4 s
+[2026-09-20T15:03:52Z INFO ] │ No reader averaging
+[2026-09-20T15:03:52Z INFO ] ├ First obs timestamp: 2025-11-15T17:13:04 UTC | 1447262002.00
+[2026-09-20T15:03:52Z INFO ] ├ Available timesteps: [0..74)
+[2026-09-20T15:03:52Z INFO ] │ Unflagged timesteps: [0..74)
+[2026-09-20T15:03:52Z INFO ] ├ Using timesteps:     [0..74)
+[2026-09-20T15:03:52Z INFO ] │ First timestamp:     2025-11-15T17:13:04 UTC (+0.00s)
+[2026-09-20T15:03:52Z INFO ] │ Last timestamp :     2025-11-15T17:17:56 UTC (+292.00s)
+[2026-09-20T15:03:52Z INFO ] │ First LMST: 69.718737° (J2000)
+[2026-09-20T15:03:52Z INFO ] └ DUT1: 0.0851438130 s
+[2026-09-20T15:03:52Z INFO ] 
+[2026-09-20T15:03:52Z INFO ] Channel info
+[2026-09-20T15:03:52Z INFO ] ├ Resolution: 40.00 kHz
+[2026-09-20T15:03:52Z INFO ] │ No Reader averaging
+[2026-09-20T15:03:52Z INFO ] ├ Total number of fine channels:     768
+[2026-09-20T15:03:52Z INFO ] │ Number of unflagged fine channels: 672
+[2026-09-20T15:03:52Z INFO ] ├ Number of fine chans per coarse channel: 32
+[2026-09-20T15:03:52Z INFO ] │ Flags per coarse channel: [0, 1, 30, 31]
+[2026-09-20T15:03:52Z INFO ] ├ First fine-channel:           184.960 MHz
+[2026-09-20T15:03:52Z INFO ] │ Last fine-channel:            215.640 MHz
+[2026-09-20T15:03:52Z INFO ] ├ First unflagged fine-channel: 185.040 MHz
+[2026-09-20T15:03:52Z INFO ] │ Last unflagged fine-channel:  215.560 MHz
+[2026-09-20T15:03:52Z INFO ] 
+[2026-09-20T15:03:56Z INFO ] Beam info
+[2026-09-20T15:03:56Z INFO ] ├ Type: FEE
+[2026-09-20T15:03:56Z INFO ] ├ Using dead dipole information (77 tiles affected)
+[2026-09-20T15:03:56Z INFO ] ├ Ideal dipole delays: [ 0  0  0  0
+[2026-09-20T15:03:56Z INFO ] │                        0  0  0  0
+[2026-09-20T15:03:56Z INFO ] │                        0  0  0  0
+[2026-09-20T15:03:56Z INFO ] │                        0  0  0  0]
+[2026-09-20T15:03:56Z INFO ] └ File: /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/data/mwa_pb/mwa_full_embedded_element_pattern.h5
+[2026-09-20T15:03:56Z INFO ] 
+[2026-09-20T15:03:56Z INFO ] Sky- and beam-modelling info
+[2026-09-20T15:03:56Z INFO ] ├ Using CPU with double precision
+[2026-09-20T15:03:56Z INFO ] │ x86_64 CPU (AVX2 available)
+[2026-09-20T15:03:56Z INFO ] 
+[2026-09-20T15:04:00Z INFO ] Sky model info
+[2026-09-20T15:04:00Z INFO ] ├ Source list contains 386408 sources
+[2026-09-20T15:04:00Z INFO ] │ (386409 components, 293880 points, 92529 Gaussians, 0 shapelets)
+[2026-09-20T15:04:00Z INFO ] ├ Using 500 sources with a total of 500 components
+[2026-09-20T15:04:00Z INFO ] │ 445 points, 55 Gaussians, 0 shapelets
+[2026-09-20T15:04:00Z INFO ] 
+[2026-09-20T15:04:00Z INFO ] DI calibration set up
+[2026-09-20T15:04:00Z INFO ] ├ 1 calibration timeblocks, 672 calibration chanblocks
+[2026-09-20T15:04:00Z INFO ] │ 74 timesteps per timeblock
+[2026-09-20T15:04:00Z INFO ] ├ Calibrating with 12573 of 16836 baselines
+[2026-09-20T15:04:00Z INFO ] │ Minimum UVW cutoff: 75λ (112.254m)
+[2026-09-20T15:04:00Z INFO ] │ Maximum UVW cutoff: 1667λ (2495.028m)
+[2026-09-20T15:04:00Z INFO ] │ (Used obs. centroid frequency 200.3 MHz to convert lambdas to metres)
+[2026-09-20T15:04:00Z INFO ] ├ Chanblocks will stop iterating
+[2026-09-20T15:04:00Z INFO ] │ - when the iteration difference is less than 1e-8 (stop threshold)
+[2026-09-20T15:04:00Z INFO ] │ - or after 500 iterations.
+[2026-09-20T15:04:00Z INFO ] │ Chanblocks with an iteration diff. less than 1e-4 are considered converged (min. threshold)
+[2026-09-20T15:04:00Z INFO ] └ Writing calibration solutions to: 1447262000_test_solutions.bin
+[2026-09-20T15:04:00Z INFO ] 
+[2026-09-20T15:04:00Z WARN ] Warnings
+[2026-09-20T15:04:00Z WARN ] └ Will overwrite the existing file '1447262000_test_solutions.bin'
+[2026-09-20T15:04:00Z WARN ] 
+[2026-09-20T15:04:33Z INFO ] Reading input data and sky modelling
+[2026-09-20T15:22:50Z INFO ] Finished reading input data and sky modelling
+Chanblock   9: converged (12): 1e-8 > 5.13192e-9
+Chanblock   7: converged (12): 1e-8 > 8.14164e-9
+Chanblock   5: converged (12): 1e-8 > 7.06692e-9
+Chanblock 100: converged (12): 1e-8 > 7.76333e-9
+Chanblock  17: converged (12): 1e-8 > 9.03914e-9
+Chanblock  18: converged (12): 1e-8 > 4.63874e-9
+Chanblock  12: converged (12): 1e-8 > 5.62467e-9
+Chanblock  15: converged (12): 1e-8 > 6.89637e-9
+Chanblock  23: converged (12): 1e-8 > 3.01855e-9
+Chanblock  14: converged (12): 1e-8 > 3.11603e-9
+Chanblock 105: converged (12): 1e-8 > 9.87614e-9
+Chanblock  16: converged (12): 1e-8 > 4.12022e-9
+Chanblock 169: converged (12): 1e-8 > 9.42169e-9
+Chanblock  20: converged (12): 1e-8 > 5.59242e-9
+Chanblock  10: converged (12): 1e-8 > 6.72881e-9
+Chanblock  48: converged (14): 1e-8 > 3.55156e-9
+Chanblock 386: converged (14): 1e-8 > 2.51530e-9
+Chanblock 432: converged (14): 1e-8 > 3.13825e-9
+Chanblock 149: converged (14): 1e-8 > 5.80439e-10
+Chanblock 578: converged (14): 1e-8 > 3.38829e-10
+Chanblock 154: converged (14): 1e-8 > 1.63864e-9
+Chanblock   6: converged (14): 1e-8 > 9.67621e-9
+Chanblock 290: converged (14): 1e-8 > 7.28082e-9
+Chanblock 194: converged (14): 1e-8 > 4.02460e-9
+Chanblock 174: converged (14): 1e-8 > 2.57436e-9
+Chanblock 179: converged (14): 1e-8 > 5.20139e-10
+Chanblock 482: converged (14): 1e-8 > 3.02248e-9
+Chanblock   4: converged (14): 1e-8 > 7.31379e-9
+Chanblock  11: converged (12): 1e-8 > 5.43633e-9
+Chanblock  13: converged (12): 1e-8 > 8.53952e-9
+Chanblock  24: converged (12): 1e-8 > 9.24390e-9
+Chanblock  21: converged (12): 1e-8 > 7.38391e-9
+Chanblock  37: converged (14): 1e-8 > 2.21725e-9
+Chanblock 146: converged (14): 1e-8 > 5.45423e-9
+Chanblock 113: converged (14): 1e-8 > 3.92363e-9
+Chanblock 163: converged (12): 1e-8 > 8.41847e-9
+Chanblock 106: converged (14): 1e-8 > 2.07429e-9
+Chanblock  49: converged (14): 1e-8 > 1.62111e-9
+Chanblock 433: converged (14): 1e-8 > 2.61674e-9
+Chanblock 155: converged (14): 1e-8 > 3.69917e-10
+Chanblock 291: converged (14): 1e-8 > 9.81303e-9
+Chanblock 107: converged (14): 1e-8 > 4.23582e-9
+Chanblock  25: converged (12): 1e-8 > 8.85057e-9
+Chanblock 164: converged (12): 1e-8 > 4.45348e-9
+Chanblock 528: converged (14): 1e-8 > 2.71843e-9
+Chanblock 483: converged (14): 1e-8 > 9.15971e-9
+Chanblock  38: converged (14): 1e-8 > 8.67620e-9
+Chanblock  50: converged (12): 1e-8 > 8.81710e-9
+Chanblock 147: converged (14): 1e-8 > 6.65105e-9
+Chanblock 114: converged (14): 1e-8 > 2.11503e-9
+Chanblock 119: converged (36): 1e-8 > 9.96560e-9
+Chanblock 156: converged (14): 1e-8 > 1.23945e-9
+Chanblock 292: converged (14): 1e-8 > 1.55091e-9
+Chanblock 503: converged (14): 1e-8 > 3.74449e-9
+Chanblock 579: converged (36): 1e-8 > 9.99468e-9
+Chanblock 529: converged (14): 1e-8 > 4.74690e-9
+Chanblock   2: converged (52): 1e-8 > 9.96512e-9
+Chanblock  39: converged (14): 1e-8 > 2.34296e-9
+Chanblock  51: converged (14): 1e-8 > 5.26097e-9
+Chanblock 484: converged (14): 1e-8 > 2.24337e-9
+Chanblock 148: converged (14): 1e-8 > 6.26077e-10
+Chanblock 120: converged (14): 1e-8 > 5.06507e-10
+Chanblock 157: converged (14): 1e-8 > 4.64801e-9
+Chanblock 293: converged (14): 1e-8 > 9.17793e-10
+Chanblock 165: converged (20): 1e-8 > 9.99596e-9
+Chanblock 504: converged (14): 1e-8 > 6.79427e-9
+Chanblock   3: converged (12): 1e-8 > 8.76809e-9
+Chanblock  40: converged (12): 1e-8 > 8.63834e-9
+Chanblock 530: converged (14): 1e-8 > 7.18844e-10
+Chanblock 121: converged (14): 1e-8 > 1.04591e-9
+Chanblock 166: converged (12): 1e-8 > 4.64682e-9
+Chanblock 116: converged (14): 1e-8 > 5.97618e-9
+Chanblock  41: converged (14): 1e-8 > 1.78515e-10
+Chanblock 294: converged (22): 1e-8 > 9.98612e-9
+Chanblock 580: converged (30): 1e-8 > 9.92873e-9
+Chanblock 167: converged (12): 1e-8 > 8.03705e-9
+Chanblock 122: converged (14): 1e-8 > 1.55747e-10
+Chanblock 171: converged (22): 1e-8 > 9.96460e-9
+Chanblock 168: converged (12): 1e-8 > 7.12713e-9
+Chanblock  42: converged (14): 1e-8 > 6.32713e-9
+Chanblock 295: converged (14): 1e-8 > 6.59370e-9
+Chanblock   8: converged (82): 1e-8 > 9.96613e-9
+Chanblock 123: converged (14): 1e-8 > 8.89165e-9
+Chanblock 172: converged (14): 1e-8 > 2.05272e-9
+Chanblock  43: converged (12): 1e-8 > 8.49963e-9
+Chanblock 124: converged (14): 1e-8 > 9.15733e-9
+Chanblock 173: converged (20): 1e-8 > 9.95167e-9
+Chanblock 240: converged (112): 1e-8 > 9.98606e-9
+Chanblock 144: converged (132): 1e-8 > 9.98598e-9
+Chanblock 145: converged (112): 1e-8 > 9.99780e-9
+Chanblock 162: converged (92): 1e-8 > 9.98854e-9
+Chanblock 553: converged (14): 1e-8 > 5.42971e-10
+Chanblock 434: converged (122): 1e-8 > 9.96576e-9
+Chanblock 103: converged (146): 1e-8 > 9.99971e-9
+Chanblock 336: converged (14): 1e-8 > 1.35851e-9
+Chanblock  45: converged (14): 1e-8 > 4.14726e-9
+Chanblock 435: converged (14): 1e-8 > 4.12902e-9
+Chanblock 131: converged (14): 1e-8 > 5.06441e-9
+Chanblock 337: converged (14): 1e-8 > 4.03084e-9
+Chanblock 175: converged (150): 1e-8 > 9.96720e-9
+Chanblock  46: converged (14): 1e-8 > 2.51386e-9
+Chanblock 338: converged (14): 1e-8 > 2.94494e-9
+Chanblock 195: converged (164): 1e-8 > 9.95425e-9
+Chanblock 176: converged (14): 1e-8 > 8.74036e-9
+Chanblock  47: converged (14): 1e-8 > 8.41050e-10
+Chanblock 196: converged (12): 1e-8 > 9.64729e-9
+Chanblock 339: converged (14): 1e-8 > 2.38102e-9
+Chanblock  99: converged (200): 1e-8 > 9.99472e-9
+Chanblock 505: converged (152): 1e-8 > 9.94594e-9
+Chanblock 506: converged (14): 1e-8 > 4.33922e-9
+Chanblock  19: converged (226): 1e-8 > 9.97492e-9
+Chanblock 108: converged (244): 1e-8 > 9.95670e-9
+Chanblock  98: converged (238): 1e-8 > 9.95323e-9
+Chanblock 507: converged (14): 1e-8 > 1.49434e-9
+Chanblock 178: converged (58): 1e-8 > 9.96204e-9
+Chanblock 170: converged (238): 1e-8 > 9.95921e-9
+Chanblock 115: converged (216): 1e-8 > 9.98405e-9
+Chanblock 109: converged (14): 1e-8 > 7.85739e-9
+Chanblock 151: converged (14): 1e-8 > 8.50756e-9
+Chanblock  44: converged (164): 1e-8 > 9.99601e-9
+Chanblock 110: converged (14): 1e-8 > 3.28629e-10
+Chanblock 130: converged (156): 1e-8 > 9.95639e-9
+Chanblock 311: converged (40): 1e-8 > 9.96000e-9
+Chanblock 184: converged (176): 1e-8 > 9.99052e-9
+Chanblock 215: converged (14): 1e-8 > 9.79179e-9
+Chanblock 485: converged (234): 1e-8 > 9.93715e-9
+Chanblock 581: converged (204): 1e-8 > 9.91042e-9
+Chanblock 340: converged (92): 1e-8 > 9.95602e-9
+Chanblock  22: converged (268): 1e-8 > 9.98091e-9
+Chanblock 312: converged (14): 1e-8 > 9.93815e-10
+Chanblock 125: converged (184): 1e-8 > 9.95923e-9
+Chanblock 185: converged (14): 1e-8 > 2.92385e-9
+Chanblock 216: converged (14): 1e-8 > 1.41343e-9
+Chanblock  52: converged (250): 1e-8 > 9.96794e-9
+Chanblock 563: converged (14): 1e-8 > 2.14110e-9
+Chanblock 341: converged (18): 1e-8 > 9.98440e-9
+Chanblock 229: converged (14): 1e-8 > 7.97558e-9
+Chanblock  53: converged (14): 1e-8 > 3.00534e-10
+Chanblock 104: converged (314): 1e-8 > 9.96243e-9
+Chanblock 117: converged (258): 1e-8 > 9.96667e-9
+Chanblock  54: converged (14): 1e-8 > 9.76497e-9
+Chanblock  73: converged (14): 1e-8 > 7.15072e-9
+Chanblock 118: converged (14): 1e-8 > 4.10913e-9
+Chanblock  55: converged (12): 1e-8 > 4.55595e-9
+Chanblock 531: converged (278): 1e-8 > 9.92605e-9
+Chanblock 197: converged (150): 1e-8 > 9.96253e-9
+Chanblock 296: converged (250): 1e-8 > 9.97818e-9
+Chanblock 674: converged (350): 1e-8 > 9.97394e-9
+Chanblock 150: converged (342): 1e-8 > 9.99733e-9
+Chanblock  74: converged (14): 1e-8 > 3.18752e-9
+Chanblock  56: converged (12): 1e-8 > 9.48022e-9
+Chanblock 265: converged (14): 1e-8 > 7.04024e-9
+Chanblock 198: converged (12): 1e-8 > 8.13697e-9
+Chanblock 532: converged (14): 1e-8 > 7.85711e-9
+Chanblock 564: converged (58): 1e-8 > 9.91385e-9
+Chanblock 508: converged (122): 1e-8 > 9.96731e-9
+Chanblock 135: converged (14): 1e-8 > 2.39670e-9
+Chanblock 199: converged (12): 1e-8 > 8.05668e-9
+Chanblock 313: converged (78): 1e-8 > 9.98301e-9
+Chanblock 517: converged (126): 1e-8 > 9.95028e-9
+Chanblock 509: converged (14): 1e-8 > 4.00015e-9
+Chanblock 200: converged (12): 1e-8 > 7.31106e-9
+Chanblock 136: converged (14): 1e-8 > 6.47557e-9
+Chanblock 138: converged (112): 1e-8 > 9.97950e-9
+Chanblock 297: converged (40): 1e-8 > 9.95594e-9
+Chanblock 457: converged (136): 1e-8 > 9.93931e-9
+Chanblock 518: converged (14): 1e-8 > 7.36425e-9
+Chanblock 514: converged (14): 1e-8 > 7.99104e-9
+Chanblock 137: converged (14): 1e-8 > 9.36201e-9
+Chanblock 152: converged (136): 1e-8 > 9.99936e-9
+Chanblock 139: converged (14): 1e-8 > 1.45468e-9
+Chanblock 298: converged (14): 1e-8 > 2.81877e-9
+Chanblock 101: converged (404): 1e-8 > 9.98566e-9
+Chanblock 458: converged (14): 1e-8 > 5.32157e-9
+Chanblock  28: converged (12): 1e-8 > 8.05443e-9
+Chanblock 153: converged (14): 1e-8 > 4.66603e-9
+Chanblock 140: converged (14): 1e-8 > 7.84584e-9
+Chanblock 299: converged (14): 1e-8 > 3.97829e-9
+Chanblock 565: converged (58): 1e-8 > 9.94358e-9
+Chanblock 582: converged (138): 1e-8 > 9.90971e-9
+Chanblock 180: converged (416): 1e-8 > 9.99630e-9
+Chanblock 566: converged (14): 1e-8 > 2.93370e-9
+Chanblock 583: converged (14): 1e-8 > 4.97881e-9
+Chanblock 141: converged (30): 1e-8 > 9.95799e-9
+Chanblock  34: converged (14): 1e-8 > 4.43085e-9
+Chanblock 567: converged (14): 1e-8 > 5.03954e-9
+Chanblock 436: converged (286): 1e-8 > 9.98064e-9
+Chanblock 720: converged (360): 1e-8 > 9.97739e-9
+Chanblock 142: converged (14): 1e-8 > 7.16295e-9
+Chanblock 568: converged (14): 1e-8 > 1.95776e-9
+Chanblock 387: converged (452): 1e-8 > 9.93232e-9
+Chanblock 342: converged (158): 1e-8 > 9.95708e-9
+Chanblock 533: converged (108): 1e-8 > 9.98130e-9
+Chanblock 569: converged (14): 1e-8 > 4.26240e-9
+Chanblock  29: converged (68): 1e-8 > 9.97954e-9
+Chanblock  36: converged (14): 1e-8 > 2.72501e-9
+Chanblock  75: converged (140): 1e-8 > 9.95889e-9
+Chanblock 102: converged (500): 1e-4 > 1.04147e-8 > 1e-8
+Chanblock 325: converged (14): 1e-8 > 1.18519e-9
+Chanblock  57: converged (152): 1e-8 > 9.99101e-9
+Chanblock 570: converged (30): 1e-8 > 9.97141e-9
+Chanblock  76: converged (14): 1e-8 > 1.24777e-9
+Chanblock 133: converged (500): 1e-4 > 1.25388e-8 > 1e-8
+Chanblock  58: converged (12): 1e-8 > 5.03238e-9
+Chanblock 326: converged (14): 1e-8 > 1.44176e-9
+Chanblock  77: converged (14): 1e-8 > 1.87791e-9
+Chanblock 675: converged (174): 1e-8 > 9.96740e-9
+Chanblock 181: converged (282): 1e-8 > 9.99088e-9
+Chanblock  59: converged (14): 1e-8 > 2.29539e-9
+Chanblock 217: converged (234): 1e-8 > 9.98991e-9
+Chanblock  26: converged (500): 1e-4 > 1.19584e-8 > 1e-8
+Chanblock 327: converged (32): 1e-8 > 9.94853e-9
+Chanblock  78: converged (32): 1e-8 > 9.96794e-9
+Chanblock 558: converged (152): 1e-8 > 9.93464e-9
+Chanblock 554: converged (404): 1e-8 > 9.95851e-9
+Chanblock  79: converged (14): 1e-8 > 3.85703e-9
+Chanblock 486: converged (272): 1e-8 > 9.94746e-9
+Chanblock 300: converged (158): 1e-8 > 9.95430e-9
+Chanblock 559: converged (14): 1e-8 > 1.44663e-9
+Chanblock 555: converged (14): 1e-8 > 2.97732e-9
+Chanblock 487: converged (14): 1e-8 > 8.15355e-9
+Chanblock 301: converged (14): 1e-8 > 8.23734e-11
+Chanblock 560: converged (14): 1e-8 > 2.32399e-9
+Chanblock 201: converged (214): 1e-8 > 9.99331e-9
+Chanblock 492: converged (88): 1e-8 > 9.96462e-9
+Chanblock 488: converged (14): 1e-8 > 9.05476e-9
+Chanblock 302: converged (14): 1e-8 > 2.37251e-9
+Chanblock 561: converged (14): 1e-8 > 6.41782e-9
+Chanblock 556: converged (22): 1e-8 > 9.97793e-9
+Chanblock 202: converged (12): 1e-8 > 5.55432e-9
+Chanblock 230: converged (288): 1e-8 > 9.96822e-9
+Chanblock 143: converged (148): 1e-8 > 9.95398e-9
+Chanblock 489: converged (14): 1e-8 > 3.68357e-9
+Chanblock 303: converged (14): 1e-8 > 7.77002e-9
+Chanblock 695: converged (412): 1e-8 > 9.97766e-9
+Chanblock  35: converged (172): 1e-8 > 9.96918e-9
+Chanblock 203: converged (12): 1e-8 > 6.70524e-9
+Chanblock 562: converged (14): 1e-8 > 6.04850e-9
+Chanblock 557: converged (14): 1e-8 > 3.17286e-9
+Chanblock 515: converged (222): 1e-8 > 9.98527e-9
+Chanblock 241: converged (500): 1e-4 > 1.37585e-8 > 1e-8
+Chanblock 490: converged (14): 1e-8 > 4.86122e-9
+Chanblock 314: converged (252): 1e-8 > 9.99922e-9
+Chanblock 316: converged (14): 1e-8 > 4.39072e-9
+Chanblock 177: converged (446): 1e-8 > 9.95099e-9
+Chanblock 516: converged (14): 1e-8 > 5.60781e-10
+Chanblock 186: converged (324): 1e-8 > 9.98225e-9
+Chanblock  83: converged (14): 1e-8 > 9.83497e-9
+Chanblock 315: converged (14): 1e-8 > 3.69808e-9
+Chanblock 250: converged (14): 1e-8 > 2.75412e-9
+Chanblock 132: converged (478): 1e-8 > 9.99560e-9
+Chanblock  84: converged (14): 1e-8 > 7.67686e-9
+Chanblock 571: converged (144): 1e-8 > 9.95608e-9
+Chanblock 343: converged (188): 1e-8 > 9.99739e-9
+Chanblock 323: converged (14): 1e-8 > 5.53541e-9
+Chanblock 251: converged (14): 1e-8 > 4.30030e-9
+Chanblock 534: converged (194): 1e-8 > 9.92193e-9
+Chanblock 187: converged (28): 1e-8 > 9.95446e-9
+Chanblock  85: converged (14): 1e-8 > 6.56453e-10
+Chanblock 262: converged (14): 1e-8 > 6.29017e-9
+Chanblock 344: converged (14): 1e-8 > 1.22474e-9
+Chanblock 252: converged (14): 1e-8 > 7.45824e-9
+Chanblock 535: converged (14): 1e-8 > 6.88271e-9
+Chanblock 188: converged (14): 1e-8 > 2.59483e-9
+Chanblock  86: converged (14): 1e-8 > 1.79704e-9
+Chanblock 519: converged (284): 1e-8 > 9.99063e-9
+Chanblock 263: converged (14): 1e-8 > 5.56809e-9
+Chanblock 345: converged (14): 1e-8 > 5.90306e-9
+Chanblock 493: converged (92): 1e-8 > 9.95497e-9
+Chanblock 536: converged (14): 1e-8 > 4.83130e-9
+Chanblock 189: converged (14): 1e-8 > 1.35152e-9
+Chanblock  87: converged (14): 1e-8 > 1.67009e-9
+Chanblock 346: converged (14): 1e-8 > 3.92986e-9
+Chanblock 537: converged (14): 1e-8 > 3.42230e-9
+Chanblock 317: converged (72): 1e-8 > 9.98740e-9
+Chanblock 497: converged (14): 1e-8 > 4.43916e-9
+Chanblock 721: converged (252): 1e-8 > 9.98098e-9
+Chanblock 266: converged (348): 1e-8 > 9.94149e-9
+Chanblock 330: converged (102): 1e-8 > 9.97522e-9
+Chanblock  60: converged (182): 1e-8 > 9.99310e-9
+Chanblock 204: converged (94): 1e-8 > 9.94295e-9
+Chanblock 347: converged (14): 1e-8 > 4.70523e-9
+Chanblock 242: converged (86): 1e-8 > 9.98328e-9
+Chanblock 538: converged (14): 1e-8 > 1.31753e-9
+Chanblock 275: converged (14): 1e-8 > 5.28202e-9
+Chanblock 498: converged (14): 1e-8 > 8.37924e-9
+Chanblock 584: converged (276): 1e-8 > 9.98933e-9
+Chanblock 331: converged (14): 1e-8 > 7.12627e-9
+Chanblock  61: converged (14): 1e-8 > 8.08291e-10
+Chanblock 348: converged (14): 1e-8 > 2.66217e-10
+Chanblock 243: converged (14): 1e-8 > 3.69780e-9
+Chanblock 182: converged (200): 1e-8 > 9.95826e-9
+Chanblock 539: converged (14): 1e-8 > 1.16089e-9
+Chanblock 499: converged (14): 1e-8 > 1.04152e-9
+Chanblock 259: converged (92): 1e-8 > 9.94426e-9
+Chanblock  66: converged (14): 1e-8 > 2.84912e-9
+Chanblock 349: converged (14): 1e-8 > 2.90105e-9
+Chanblock 244: converged (14): 1e-8 > 5.56321e-9
+Chanblock  80: converged (174): 1e-8 > 9.97197e-9
+Chanblock 354: converged (14): 1e-8 > 8.50381e-10
+Chanblock 218: converged (224): 1e-8 > 9.98298e-9
+Chanblock  81: converged (14): 1e-8 > 3.13261e-9
+Chanblock 304: converged (154): 1e-8 > 9.99006e-9
+Chanblock 111: converged (500): 1e-4 > 1.26568e-8 > 1e-8
+Chanblock  82: converged (14): 1e-8 > 1.07353e-10
+Chanblock 520: converged (104): 1e-8 > 9.92242e-9
+Chanblock 305: converged (14): 1e-8 > 4.07522e-9
+Chanblock 134: converged (268): 1e-8 > 9.98455e-9
+Chanblock 270: converged (14): 1e-8 > 8.98971e-9
+Chanblock 491: converged (164): 1e-8 > 9.93049e-9
+Chanblock 306: converged (14): 1e-8 > 2.69571e-9
+Chanblock 573: converged (14): 1e-8 > 9.54494e-9
+Chanblock 437: converged (348): 1e-8 > 9.97072e-9
+Chanblock 676: converged (274): 1e-8 > 9.95357e-9
+Chanblock 271: converged (14): 1e-8 > 1.74270e-9
+Chanblock 684: converged (396): 1e-8 > 9.93713e-9
+Chanblock 459: converged (396): 1e-8 > 9.93952e-9
+Chanblock 540: converged (78): 1e-8 > 9.95851e-9
+Chanblock 355: converged (60): 1e-8 > 9.95883e-9
+Chanblock 276: converged (98): 1e-8 > 9.99004e-9
+Chanblock 307: converged (24): 1e-8 > 9.95571e-9
+Chanblock 388: converged (356): 1e-8 > 9.95553e-9
+Chanblock 112: converged (54): 1e-8 > 9.98316e-9
+Chanblock 356: converged (14): 1e-8 > 3.18424e-9
+Chanblock 245: converged (92): 1e-8 > 9.95519e-9
+Chanblock 308: converged (14): 1e-8 > 5.51898e-9
+Chanblock 389: converged (14): 1e-8 > 7.73813e-9
+Chanblock 309: converged (14): 1e-8 > 3.15373e-9
+Chanblock 246: converged (14): 1e-8 > 4.15957e-9
+Chanblock 183: converged (122): 1e-8 > 9.99757e-9
+Chanblock 324: converged (192): 1e-8 > 9.93900e-9
+Chanblock 247: converged (14): 1e-8 > 9.08184e-9
+Chanblock 219: converged (106): 1e-8 > 9.96138e-9
+Chanblock 260: converged (128): 1e-8 > 9.96275e-9
+Chanblock 248: converged (14): 1e-8 > 7.64273e-9
+Chanblock 220: converged (14): 1e-8 > 2.53314e-9
+Chanblock 234: converged (84): 1e-8 > 9.97414e-9
+Chanblock 205: converged (166): 1e-8 > 9.96107e-9
+Chanblock 261: converged (14): 1e-8 > 9.74180e-9
+Chanblock  27: converged (346): 1e-8 > 9.99711e-9
+Chanblock 249: converged (14): 1e-8 > 5.67720e-9
+Chanblock 235: converged (14): 1e-8 > 2.24842e-9
+Chanblock 438: converged (94): 1e-8 > 9.96068e-9
+Chanblock 460: converged (96): 1e-8 > 9.96026e-9
+Chanblock 500: converged (172): 1e-8 > 9.94891e-9
+Chanblock 685: converged (100): 1e-8 > 9.91077e-9
+Chanblock 439: converged (14): 1e-8 > 1.74863e-9
+Chanblock 522: converged (14): 1e-8 > 5.14862e-9
+Chanblock 440: converged (14): 1e-8 > 7.72014e-9
+Chanblock 322: converged (286): 1e-8 > 9.93737e-9
+Chanblock 264: converged (248): 1e-8 > 9.95981e-9
+Chanblock 572: converged (308): 1e-8 > 9.98703e-9
+Chanblock 277: converged (116): 1e-8 > 9.95126e-9
+Chanblock 523: converged (14): 1e-8 > 2.59248e-9
+Chanblock 357: converged (112): 1e-8 > 9.94552e-9
+Chanblock 585: converged (232): 1e-8 > 9.99171e-9
+Chanblock 358: converged (14): 1e-8 > 1.47648e-9
+Chanblock 696: converged (344): 1e-8 > 9.91790e-9
+Chanblock 272: converged (162): 1e-8 > 9.93641e-9
+Chanblock 722: converged (262): 1e-8 > 9.99191e-9
+Chanblock 677: converged (172): 1e-8 > 9.97925e-9
+Chanblock 273: converged (14): 1e-8 > 4.69756e-9
+Chanblock 678: converged (14): 1e-8 > 2.10116e-10
+Chanblock 268: converged (194): 1e-8 > 9.95783e-9
+Chanblock 274: converged (14): 1e-8 > 2.76204e-9
+Chanblock 328: converged (438): 1e-8 > 9.98923e-9
+Chanblock 269: converged (14): 1e-8 > 1.74363e-9
+Chanblock 329: converged (14): 1e-8 > 3.33869e-9
+Chanblock 494: converged (318): 1e-8 > 9.93029e-9
+Chanblock 237: converged (160): 1e-8 > 9.94747e-9
+Chanblock 267: converged (304): 1e-8 > 9.94595e-9
+Chanblock 495: converged (14): 1e-8 > 3.98280e-9
+Chanblock 238: converged (14): 1e-8 > 8.96889e-9
+Chanblock 253: converged (356): 1e-8 > 9.99245e-9
+Chanblock 599: converged (28): 1e-8 > 9.94987e-9
+Chanblock 258: converged (14): 1e-8 > 2.92450e-9
+Chanblock 521: converged (264): 1e-8 > 9.98551e-9
+Chanblock 335: converged (14): 1e-8 > 4.37069e-9
+Chanblock 442: converged (130): 1e-8 > 9.99870e-9
+Chanblock 226: converged (14): 1e-8 > 3.82796e-9
+Chanblock 443: converged (14): 1e-8 > 5.93982e-9
+Chanblock 227: converged (14): 1e-8 > 6.79993e-9
+Chanblock 310: converged (236): 1e-8 > 9.94881e-9
+Chanblock 686: converged (170): 1e-8 > 9.92080e-9
+Chanblock 461: converged (172): 1e-8 > 9.98671e-9
+Chanblock 462: converged (14): 1e-8 > 7.82311e-10
+Chanblock 407: converged (14): 1e-8 > 3.79987e-9
+Chanblock 624: converged (104): 1e-8 > 9.97534e-9
+Chanblock 600: converged (70): 1e-8 > 9.98946e-9
+Chanblock 408: converged (14): 1e-8 > 6.73888e-9
+Chanblock 541: converged (298): 1e-8 > 9.99276e-9
+Chanblock 332: converged (384): 1e-8 > 9.98785e-9
+Chanblock 231: converged (500): 1e-4 > 1.00165e-8 > 1e-8
+Chanblock 206: converged (234): 1e-8 > 9.98617e-9
+Chanblock 390: converged (272): 1e-8 > 9.96791e-9
+Chanblock 409: converged (14): 1e-8 > 4.98387e-9
+Chanblock 546: converged (14): 1e-8 > 8.62305e-9
+Chanblock 232: converged (14): 1e-8 > 5.20760e-9
+Chanblock  70: converged (14): 1e-8 > 5.42096e-9
+Chanblock 207: converged (14): 1e-8 > 8.67959e-9
+Chanblock 391: converged (14): 1e-8 > 2.12836e-9
+Chanblock 410: converged (14): 1e-8 > 2.76527e-10
+Chanblock 441: converged (214): 1e-8 > 9.94893e-9
+Chanblock 208: converged (14): 1e-8 > 4.76406e-9
+Chanblock 239: converged (116): 1e-8 > 9.96286e-9
+Chanblock  91: converged (134): 1e-8 > 9.96954e-9
+Chanblock 547: converged (20): 1e-8 > 9.94214e-9
+Chanblock 679: converged (162): 1e-8 > 9.90828e-9
+Chanblock  67: converged (412): 1e-8 > 9.96568e-9
+Chanblock 588: converged (14): 1e-8 > 4.33244e-10
+Chanblock 548: converged (14): 1e-8 > 1.01393e-9
+Chanblock 392: converged (34): 1e-8 > 9.99160e-9
+Chanblock 687: converged (234): 1e-8 > 9.95734e-9
+Chanblock 496: converged (146): 1e-8 > 9.93927e-9
+Chanblock  68: converged (14): 1e-8 > 1.75519e-9
+Chanblock 589: converged (14): 1e-8 > 2.67179e-9
+Chanblock  88: converged (478): 1e-8 > 9.96381e-9
+Chanblock 393: converged (14): 1e-8 > 6.84503e-9
+Chanblock 689: converged (288): 1e-8 > 9.91022e-9
+Chanblock  69: converged (14): 1e-8 > 3.03223e-9
+Chanblock 524: converged (246): 1e-8 > 9.94958e-9
+Chanblock  89: converged (14): 1e-8 > 3.36215e-9
+Chanblock 280: converged (132): 1e-8 > 9.98053e-9
+Chanblock 550: converged (14): 1e-8 > 7.52258e-9
+Chanblock 693: converged (54): 1e-8 > 9.98940e-9
+Chanblock 501: converged (338): 1e-8 > 9.99606e-9
+Chanblock  90: converged (14): 1e-8 > 7.50353e-10
+Chanblock 281: converged (14): 1e-8 > 4.83584e-9
+Chanblock  93: converged (14): 1e-8 > 2.87602e-9
+Chanblock 552: converged (18): 1e-8 > 9.98455e-9
+Chanblock 525: converged (32): 1e-8 > 9.98529e-9
+Chanblock 396: converged (14): 1e-8 > 1.88497e-9
+Chanblock 282: converged (14): 1e-8 > 7.09952e-9
+Chanblock 421: converged (14): 1e-8 > 4.27318e-9
+Chanblock 613: converged (14): 1e-8 > 9.74729e-9
+Chanblock 411: converged (88): 1e-8 > 9.93225e-9
+Chanblock 444: converged (152): 1e-8 > 9.98072e-9
+Chanblock 397: converged (14): 1e-8 > 1.79244e-9
+Chanblock 551: converged (52): 1e-8 > 9.97907e-9
+Chanblock 283: converged (14): 1e-8 > 1.78782e-9
+Chanblock 422: converged (14): 1e-8 > 1.83637e-9
+Chanblock 614: converged (14): 1e-8 > 4.26137e-9
+Chanblock 586: converged (292): 1e-8 > 9.94764e-9
+Chanblock 398: converged (14): 1e-8 > 2.03840e-9
+Chanblock 284: converged (14): 1e-8 > 5.80731e-9
+Chanblock 221: converged (374): 1e-8 > 9.98515e-9
+Chanblock 688: converged (84): 1e-8 > 9.91513e-9
+Chanblock 423: converged (14): 1e-8 > 6.85187e-10
+Chanblock 615: converged (14): 1e-8 > 1.39379e-9
+Chanblock 333: converged (418): 1e-8 > 9.94875e-9
+Chanblock 334: converged (370): 1e-8 > 9.98749e-9
+Chanblock 278: converged (328): 1e-8 > 9.98918e-9
+Chanblock 399: converged (14): 1e-8 > 2.98234e-9
+Chanblock 697: converged (300): 1e-8 > 9.95885e-9
+Chanblock 371: converged (14): 1e-8 > 5.18322e-9
+Chanblock 285: converged (14): 1e-8 > 4.99038e-10
+Chanblock 723: converged (296): 1e-8 > 9.93554e-9
+Chanblock 394: converged (92): 1e-8 > 9.98549e-9
+Chanblock 279: converged (14): 1e-8 > 2.17901e-9
+Chanblock 400: converged (14): 1e-8 > 7.81800e-9
+Chanblock 372: converged (14): 1e-8 > 8.08436e-9
+Chanblock  72: converged (14): 1e-8 > 4.40158e-9
+Chanblock 426: converged (14): 1e-8 > 4.01316e-9
+Chanblock 401: converged (14): 1e-8 > 5.85053e-10
+Chanblock 625: converged (194): 1e-8 > 9.95237e-9
+Chanblock 373: converged (14): 1e-8 > 4.62936e-9
+Chanblock 427: converged (14): 1e-8 > 3.20337e-9
+Chanblock 402: converged (14): 1e-8 > 6.31415e-9
+Chanblock 451: converged (48): 1e-8 > 9.92471e-9
+Chanblock 374: converged (14): 1e-8 > 6.39814e-10
+Chanblock 359: converged (352): 1e-8 > 9.99540e-9
+Chanblock 463: converged (218): 1e-8 > 9.92006e-9
+Chanblock 403: converged (14): 1e-8 > 1.14540e-9
+Chanblock 452: converged (14): 1e-8 > 7.86997e-9
+Chanblock 680: converged (166): 1e-8 > 9.97070e-9
+Chanblock 375: converged (14): 1e-8 > 1.55358e-9
+Chanblock 425: converged (14): 1e-8 > 2.23749e-9
+Chanblock 590: converged (158): 1e-8 > 9.99293e-9
+Chanblock 464: converged (14): 1e-8 > 7.94785e-9
+Chanblock 404: converged (14): 1e-8 > 2.03561e-9
+Chanblock 453: converged (14): 1e-8 > 1.68180e-9
+Chanblock 376: converged (14): 1e-8 > 5.71048e-9
+Chanblock 610: converged (14): 1e-8 > 6.35957e-9
+Chanblock 601: converged (234): 1e-8 > 9.95711e-9
+Chanblock 454: converged (14): 1e-8 > 7.08101e-9
+Chanblock 377: converged (14): 1e-8 > 8.87455e-9
+Chanblock 602: converged (14): 1e-8 > 6.55932e-9
+Chanblock 549: converged (188): 1e-8 > 9.96326e-9
+Chanblock 428: converged (54): 1e-8 > 9.98808e-9
+Chanblock 455: converged (14): 1e-8 > 1.54966e-9
+Chanblock 694: converged (160): 1e-8 > 9.99373e-9
+Chanblock 709: converged (348): 1e-8 > 9.99494e-9
+Chanblock 378: converged (14): 1e-8 > 6.49481e-9
+Chanblock 618: converged (14): 1e-8 > 8.42812e-9
+Chanblock 429: converged (14): 1e-8 > 8.97873e-9
+Chanblock 603: converged (18): 1e-8 > 9.98171e-9
+Chanblock 612: converged (14): 1e-8 > 5.68863e-9
+Chanblock 379: converged (14): 1e-8 > 1.39551e-9
+Chanblock 502: converged (498): 1e-8 > 9.96584e-9
+Chanblock 626: converged (100): 1e-8 > 9.94685e-9
+Chanblock 380: converged (14): 1e-8 > 3.82368e-9
+Chanblock 236: converged (500): 1e-4 > 1.11055e-8 > 1e-8
+Chanblock 724: converged (122): 1e-8 > 9.97299e-9
+Chanblock 366: converged (14): 1e-8 > 4.47995e-9
+Chanblock 692: converged (474): 1e-8 > 9.91854e-9
+Chanblock 627: converged (14): 1e-8 > 8.60630e-9
+Chanblock 233: converged (282): 1e-8 > 9.98044e-9
+Chanblock 424: converged (152): 1e-8 > 9.97507e-9
+Chanblock 367: converged (14): 1e-8 > 5.79318e-9
+Chanblock 621: converged (14): 1e-8 > 2.67654e-9
+Chanblock 628: converged (14): 1e-8 > 6.15882e-9
+Chanblock  71: converged (288): 1e-8 > 9.98325e-9
+Chanblock 405: converged (94): 1e-8 > 9.99989e-9
+Chanblock 465: converged (96): 1e-8 > 9.96089e-9
+Chanblock 622: converged (14): 1e-8 > 1.31324e-9
+Chanblock 634: converged (38): 1e-8 > 9.98995e-9
+Chanblock 617: converged (62): 1e-8 > 9.98533e-9
+Chanblock 406: converged (14): 1e-8 > 5.04910e-10
+Chanblock 466: converged (14): 1e-8 > 9.14311e-9
+Chanblock 635: converged (14): 1e-8 > 3.82773e-9
+Chanblock 361: converged (280): 1e-8 > 9.98089e-9
+Chanblock 690: converged (298): 1e-8 > 9.94391e-9
+Chanblock 706: converged (18): 1e-8 > 9.92518e-9
+Chanblock 412: converged (226): 1e-8 > 9.93747e-9
+Chanblock 362: converged (14): 1e-8 > 6.02937e-9
+Chanblock 413: converged (14): 1e-8 > 4.82461e-9
+Chanblock 450: converged (218): 1e-8 > 9.94139e-9
+Chanblock  92: converged (400): 1e-8 > 9.95388e-9
+Chanblock 363: converged (22): 1e-8 > 9.99590e-9
+Chanblock 360: converged (230): 1e-8 > 9.94879e-9
+Chanblock 368: converged (72): 1e-8 > 9.99599e-9
+Chanblock 213: converged (14): 1e-8 > 2.93999e-9
+Chanblock 364: converged (14): 1e-8 > 8.17380e-10
+Chanblock 616: converged (244): 1e-8 > 9.91245e-9
+Chanblock 681: converged (270): 1e-8 > 9.92324e-9
+Chanblock 619: converged (144): 1e-8 > 9.93101e-9
+Chanblock 636: converged (92): 1e-8 > 9.98378e-9
+Chanblock 431: converged (14): 1e-8 > 2.75526e-9
+Chanblock 611: converged (178): 1e-8 > 9.95711e-9
+Chanblock 708: converged (14): 1e-8 > 9.39141e-9
+Chanblock 637: converged (14): 1e-8 > 4.10031e-9
+Chanblock 587: converged (292): 1e-8 > 9.93580e-9
+Chanblock 623: converged (108): 1e-8 > 9.91877e-9
+Chanblock 642: converged (14): 1e-8 > 4.67269e-9
+Chanblock 691: converged (92): 1e-8 > 9.96088e-9
+Chanblock 604: converged (226): 1e-8 > 9.98765e-9
+Chanblock 395: converged (278): 1e-8 > 9.93736e-9
+Chanblock 605: converged (14): 1e-8 > 5.54800e-9
+Chanblock 420: converged (14): 1e-8 > 8.40327e-9
+Chanblock 659: converged (52): 1e-8 > 9.92920e-9
+Chanblock 228: converged (500): 1e-4 > 1.15240e-8 > 1e-8
+Chanblock 430: converged (210): 1e-8 > 9.94927e-9
+Chanblock 651: converged (14): 1e-8 > 4.33358e-9
+Chanblock 707: converged (138): 1e-8 > 9.96043e-9
+Chanblock 369: converged (104): 1e-8 > 9.94895e-9
+Chanblock 526: converged (378): 1e-8 > 9.99040e-9
+Chanblock 750: converged (42): 1e-8 > 9.97727e-9
+Chanblock 644: converged (14): 1e-8 > 7.25044e-9
+Chanblock 527: converged (14): 1e-8 > 5.14736e-9
+Chanblock 456: converged (256): 1e-8 > 9.94732e-9
+Chanblock 211: converged (78): 1e-8 > 9.97695e-9
+Chanblock 650: converged (14): 1e-8 > 8.34022e-9
+Chanblock 381: converged (230): 1e-8 > 9.93099e-9
+Chanblock 629: converged (226): 1e-8 > 9.99448e-9
+Chanblock 664: converged (14): 1e-8 > 9.19276e-9
+Chanblock 682: converged (134): 1e-8 > 9.99223e-9
+Chanblock 654: converged (94): 1e-8 > 9.93909e-9
+Chanblock 209: converged (500): 1e-4 > 1.12315e-8 > 1e-8
+Chanblock 630: converged (14): 1e-8 > 4.04927e-9
+Chanblock 591: converged (322): 1e-8 > 9.92742e-9
+Chanblock 683: converged (14): 1e-8 > 9.25399e-10
+Chanblock 593: converged (14): 1e-8 > 4.42288e-9
+Chanblock 631: converged (14): 1e-8 > 2.60577e-9
+Chanblock 755: converged (234): 1e-8 > 9.92979e-9
+Chanblock 620: converged (170): 1e-8 > 9.92585e-9
+Chanblock 649: converged (402): 1e-8 > 9.92796e-9
+Chanblock 756: converged (14): 1e-8 > 8.46474e-9
+Chanblock 758: converged (86): 1e-8 > 9.94456e-9
+Chanblock 700: converged (286): 1e-8 > 9.98437e-9
+Chanblock 467: converged (270): 1e-8 > 9.96679e-9
+Chanblock 445: converged (500): 1e-4 > 1.22384e-8 > 1e-8
+Chanblock 594: converged (86): 1e-8 > 9.98412e-9
+Chanblock 698: converged (486): 1e-8 > 9.92489e-9
+Chanblock 753: converged (66): 1e-8 > 9.90348e-9
+Chanblock 592: converged (106): 1e-8 > 9.90586e-9
+Chanblock 655: converged (114): 1e-8 > 9.96679e-9
+Chanblock 710: converged (396): 1e-8 > 9.92755e-9
+Chanblock 745: converged (400): 1e-8 > 9.93251e-9
+Chanblock 656: converged (210): 1e-8 > 9.99988e-9
+Chanblock 701: converged (296): 1e-8 > 9.95404e-9
+Chanblock 752: converged (122): 1e-8 > 9.94810e-9
+Chanblock 596: converged (102): 1e-8 > 9.97522e-9
+Chanblock 419: converged (254): 1e-8 > 9.96994e-9
+Chanblock 418: converged (310): 1e-8 > 9.94399e-9
+Chanblock 210: converged (302): 1e-8 > 9.98618e-9
+Chanblock 652: converged (208): 1e-8 > 9.99059e-9
+Chanblock 365: converged (296): 1e-8 > 9.95211e-9
+Chanblock 663: converged (14): 1e-8 > 7.65711e-9
+Chanblock 643: converged (402): 1e-8 > 9.98429e-9
+Chanblock 214: converged (320): 1e-8 > 9.99276e-9
+Chanblock 667: converged (112): 1e-8 > 9.98318e-9
+Chanblock 715: converged (62): 1e-8 > 9.93810e-9
+Chanblock 469: converged (14): 1e-8 > 3.10043e-9
+Chanblock 470: converged (14): 1e-8 > 5.32293e-9
+Chanblock 725: converged (442): 1e-8 > 9.96878e-9
+Chanblock 714: converged (126): 1e-8 > 9.91239e-9
+Chanblock 468: converged (166): 1e-8 > 9.98392e-9
+Chanblock 751: converged (276): 1e-8 > 9.97451e-9
+Chanblock 597: converged (110): 1e-8 > 9.94484e-9
+Chanblock 646: converged (306): 1e-8 > 9.98817e-9
+Chanblock 669: converged (14): 1e-8 > 2.63629e-9
+Chanblock 598: converged (14): 1e-8 > 5.97343e-9
+Chanblock 717: converged (146): 1e-8 > 9.91892e-9
+Chanblock 760: converged (324): 1e-8 > 9.90683e-9
+Chanblock 632: converged (262): 1e-8 > 9.96990e-9
+Chanblock 747: converged (124): 1e-8 > 9.97421e-9
+Chanblock 595: converged (238): 1e-8 > 9.91690e-9
+Chanblock 665: converged (296): 1e-8 > 9.98547e-9
+Chanblock 699: converged (400): 1e-8 > 9.99752e-9
+Chanblock 757: converged (330): 1e-8 > 9.97108e-9
+Chanblock 212: converged (500): 1e-4 > 1.07745e-8 > 1e-8
+Chanblock 658: converged (130): 1e-8 > 9.99680e-9
+Chanblock 474: converged (72): 1e-8 > 9.98856e-9
+Chanblock 476: converged (80): 1e-8 > 9.95809e-9
+Chanblock 653: converged (338): 1e-8 > 9.97277e-9
+Chanblock 645: converged (364): 1e-8 > 9.95543e-9
+Chanblock 748: converged (76): 1e-8 > 9.93961e-9
+Chanblock 763: converged (170): 1e-8 > 9.97762e-9
+Chanblock 732: converged (56): 1e-8 > 9.96192e-9
+Chanblock 657: converged (218): 1e-8 > 9.91697e-9
+Chanblock 477: converged (42): 1e-8 > 9.97160e-9
+Chanblock 370: converged (460): 1e-8 > 9.93473e-9
+Chanblock 648: converged (14): 1e-8 > 1.50037e-9
+Chanblock 660: converged (438): 1e-8 > 9.99617e-9
+Chanblock 661: converged (268): 1e-8 > 9.94344e-9
+Chanblock 633: converged (198): 1e-8 > 9.97410e-9
+Chanblock 475: converged (214): 1e-8 > 9.95420e-9
+Chanblock 473: converged (144): 1e-8 > 9.95972e-9
+Chanblock 472: converged (228): 1e-8 > 9.94476e-9
+Chanblock 742: converged (96): 1e-8 > 9.97639e-9
+Chanblock 666: converged (304): 1e-8 > 9.94836e-9
+Chanblock 741: converged (72): 1e-8 > 9.91540e-9
+Chanblock 754: converged (318): 1e-8 > 9.94902e-9
+Chanblock 662: converged (290): 1e-8 > 9.91441e-9
+Chanblock 471: converged (236): 1e-8 > 9.96978e-9
+Chanblock 759: converged (378): 1e-8 > 9.91466e-9
+Chanblock 739: converged (160): 1e-8 > 9.98322e-9
+Chanblock 730: converged (194): 1e-8 > 9.97755e-9
+Chanblock 716: converged (308): 1e-8 > 9.90286e-9
+Chanblock 719: converged (198): 1e-8 > 9.93046e-9
+Chanblock 727: converged (224): 1e-8 > 9.96066e-9
+Chanblock 668: converged (360): 1e-8 > 9.96105e-9
+Chanblock 729: converged (168): 1e-8 > 9.99904e-9
+Chanblock 728: converged (226): 1e-8 > 9.94331e-9
+Chanblock 746: converged (392): 1e-8 > 9.99725e-9
+Chanblock 726: converged (292): 1e-8 > 9.97014e-9
+Chanblock 738: converged (166): 1e-8 > 9.94049e-9
+Chanblock 647: converged (414): 1e-8 > 9.98621e-9
+Chanblock 740: converged (300): 1e-8 > 9.93383e-9
+Chanblock 731: converged (266): 1e-8 > 9.92874e-9
+Chanblock 743: converged (246): 1e-8 > 9.99754e-9
+Chanblock 733: converged (286): 1e-8 > 9.91984e-9
+Chanblock 711: converged (500): 1e-4 > 1.23890e-8 > 1e-8
+Chanblock 718: converged (384): 1e-8 > 9.98380e-9
+Chanblock 712: converged (304): 1e-8 > 9.94858e-9
+Chanblock 761: converged (362): 1e-8 > 9.95154e-9
+Chanblock 713: converged (376): 1e-8 > 9.97241e-9
+Chanblock 744: converged (372): 1e-8 > 9.91532e-9
+Chanblock 749: converged (382): 1e-8 > 9.95618e-9
+Chanblock 764: converged (416): 1e-8 > 9.96981e-9
+Chanblock 765: converged (416): 1e-8 > 9.99129e-9
+Chanblock 762: converged (412): 1e-8 > 9.92178e-9
+[2026-09-20T15:27:29Z INFO ] All timesteps: 672/672 (100%) chanblocks converged
+[2026-09-20T15:27:35Z INFO ] Calibration solutions written to 1447262000_test_solutions.bin
+[2026-09-20T15:27:35Z INFO ] hyperdrive di-calibrate complete.
++ [[ 0 -ne 0 ]]
++ singularity run /software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_15Sep26.img hyperdrive solutions-plot --max-amp 2 -m 1447262000.metafits 1447262000_test_solutions.bin
+[2026-09-20T15:27:36Z INFO ] hyperdrive solutions-plot 0.8.0
+[2026-09-20T15:27:36Z INFO ] Compiled on git commit hash: 0eb4e67
+[2026-09-20T15:27:36Z INFO ]             Tue, 15 Sep 2026 09:10:32 +0000
+[2026-09-20T15:27:36Z INFO ]          with compiler rustc 1.98.1 (48a229cea 2026-09-01)
+[2026-09-20T15:27:36Z INFO ] 
+[2026-09-20T15:27:36Z INFO ] Wrote ["1447262000_test_solutions_amps.png", "1447262000_test_solutions_phases.png"]
+[2026-09-20T15:27:36Z INFO ] hyperdrive solutions-plot complete.
