@@ -2,19 +2,30 @@
 #SBATCH --account=pawsey0272
 #SBATCH --partition=work
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=24
-#SBATCH --mem=43G
+#SBATCH --cpus-per-task=55
+#SBATCH --mem=100G
 #SBATCH --time=12:00:00
 #SBATCH --output=image_%j.log
 #SBATCH --error=image_%j.log
 
-# source profile run in a login script 
+# source profile run in a login script, not bash 
 # usually load module at the begining 
 module load singularity/4.1.0-slurm
-# use ramcopy for better speed 
-# match CUP and memory choices 
 
-obsnum=1447262000
+set -euo pipefail
+
+obsnum=$1
+robust=$2 # test -2 to 0.5, +0.5 
+minuv=$3 # baseline inner cut in \lambda 
+tukey=$4 # baseline cut inner edge smoothening taper in \lambda 
+
+testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
+
+runname="${obsnum}_robust${robust}_minuv${minuv}_tukey${tukey}"
+rundir="${testdir}/${runname}_${SLURM_JOB_ID}"
+
+tmpdir="/tmp/slurm_image_${GXUSER}_${runname}_${SLURM_JOB_ID}" # use ram copy with unique names! 
+
 datacolumn="CORRECTED_DATA"
 # WSClean suffixes for subchannels and MFS
 # subchans="MFS 0000 0001 0002 0003"
@@ -29,22 +40,27 @@ tsigma=3
 # telescope="MWALB"
 basescale=0.6
 imsize=8000
-robust=-1
+
 # dynweight="natural"
 scale=$(echo "0.6 / 157" | bc -l)
 
-# check folder exist 
+# use ram copy
+mkdir -p $tmpdir
+cp -rf "${testdir}${obsnum}/${obsnum}.ms" "$tmpdir/"
+mst="${tmpdir}/${obsnum}.ms"
 
+mkdir "${rundir}"
+cd "${rundir}"
 
-
-cd "${obsnum}" || exit 1
-
-
+# image test: input MS is in /tmp, but output images go directly to $rundir
 singularity exec "$GXCONTAINER" wsclean \
-  -name "${obsnum}_test_r${robust}_m${msigma}_t${tsigma}" \
+  -j "$SLURM_CPUS_PER_TASK" \
+  -name "${runname}" \
   -size "$imsize" "$imsize" \
   -scale "${scale}deg" \
   -weight briggs "$robust" \
+  -minuv-l ${minuv} \
+  -taper-inner-tukey ${tukey} \
   -mgain 0.85 \
   -nmiter 3 \
   -niter 10000000 \
@@ -55,5 +71,11 @@ singularity exec "$GXCONTAINER" wsclean \
   -channels-out 4 \
   -fit-spectral-pol 2 \
   -save-source-list \
-  -data-column CORRECTED_DATA \
-  "${obsnum}.ms"
+  -data-column ${datacolumn} \
+  "${mst}"
+
+# copy ram copy to rundir, then remove ram copy 
+# do we still need the *.ms though? 
+echo "Copying ${obsnum}.ms from ram copy to ${rundir}/"
+mv "${mst}" "${rundir}/"
+rmdir -rf $tmpdir # rmdir removes the directory only if it is empty
