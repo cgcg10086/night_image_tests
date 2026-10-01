@@ -22,7 +22,7 @@ tukey=$4 # baseline cut inner edge smoothening taper in \lambda
 testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
 
 runname="${obsnum}_robust${robust}_minuv${minuv}_tukey${tukey}"
-rundir="${testdir}/${runname}_${SLURM_JOB_ID}"
+rundir="${testdir}/${runname}"
 
 tmpdir="/tmp/slurm_image_${GXUSER}_${runname}_${SLURM_JOB_ID}" # use ram copy with unique names! 
 
@@ -46,7 +46,7 @@ scale=$(echo "0.6 / 157" | bc -l)
 
 # use ram copy
 mkdir -p $tmpdir
-cp -rf "${testdir}${obsnum}/${obsnum}.ms" "$tmpdir/"
+cp -rf "${testdir}/${obsnum}/${obsnum}.ms" "$tmpdir/"
 mst="${tmpdir}/${obsnum}.ms"
 
 mkdir "${rundir}"
@@ -78,4 +78,7 @@ singularity exec "$GXCONTAINER" wsclean \
 # do we still need the *.ms though? 
 echo "Copying ${obsnum}.ms from ram copy to ${rundir}/"
 mv "${mst}" "${rundir}/"
-rmdir -rf $tmpdir # rmdir removes the directory only if it is empty
+rmdir $tmpdir # rmdir removes the directory only if it is empty
+
+# add something to check if previous run compelete then skip re-run by default 
+touch "${rundir}/imaging.done"

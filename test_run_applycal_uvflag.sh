@@ -5,8 +5,8 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --time=2:00:00
-#SBATCH --output=autocal_%j.log
-#SBATCH --error=autocal_%j.log
+#SBATCH --output=applycal_uvflag_%j.log
+#SBATCH --error=applycal_uvflag_%j.log
 
 set -euo pipefail
 
