@@ -22,7 +22,7 @@ tukey=$4 # baseline cut inner edge smoothening taper in \lambda
 testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
 
 runname="${obsnum}_robust${robust}_minuv${minuv}_tukey${tukey}"
-rundir="${testdir}/${runname}"
+rundir="${testdir}/$obsnum/${runname}"
 
 tmpdir="/tmp/slurm_image_${GXUSER}_${runname}_${SLURM_JOB_ID}" # use ram copy with unique names! 
 
@@ -38,11 +38,15 @@ tsigma=3
 # how to choose? 
 # State of play in mid-2025 -- lots of short baselines so downweight them
 # telescope="MWALB"
-basescale=0.6
 imsize=8000
+metafits="${testdir}/${obsnum}/${obsnum}.metafits"
 
 # dynweight="natural"
-scale=$(echo "0.6 / 157" | bc -l)
+# scale=$(echo "0.6 / 157" | bc -l)
+basescale=0.6 # why? 
+chan="$(singularity exec "$GXCONTAINER" pyhead.py -p CENTCHAN ${metafits} | awk '{print $3}')"
+scale=$(echo "$basescale / $chan" | bc -l)
+echo "chan=${chan}, scale=${scale}"
 
 # use ram copy
 mkdir -p $tmpdir

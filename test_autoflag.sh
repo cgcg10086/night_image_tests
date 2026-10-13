@@ -10,10 +10,22 @@
 
 module load singularity/4.1.0-slurm
 
+set -u
+
 obsnum=$1
 flags=$2 # additional tiles to be flagged (after inspect autocal solution) 
+# GXCONTAINER="/software/projects/pawsey0272/gcchen/GLEAM-X-pipeline/gleamx_container_25Sep26.img"
+echo "container: $GXCONTAINER"
+
 testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
 cd "${testdir}/${obsnum}" || exit 1
+echo "cd ${testdir}/${obsnum}"
+
+# $flags without {} read each element seperately so no longer need flag_list[@]
+if [[ -n "$flags" ]]; then
+    echo "Flagging antennas: $flags"
+    singularity exec "${GXCONTAINER}" flagantennae "${obsnum}.ms" $flags
+fi
 
 # These have been flagged by birli during manta-ray-clinet (data conversion?) 
 # # read flagged tile numbers 
@@ -29,11 +41,7 @@ cd "${testdir}/${obsnum}" || exit 1
 # PY
 # ) || exit 1
 
-# $flags without {} read each element seperately so no longer need flag_list[@]
-if [[ -n "$flags" ]]; then
-    echo "Flagging antennas: ${flags}"
-    singularity exec "$GXCONTAINER" flagantennae "${obsnum}.ms" $flags
-fi
+
 
 # flag_list is a bash array flag_list=(76 80 156 157)
 # singularity exec "$GXCONTAINER" flagantennae "${obsnum}.ms" "${flag_list[@]}" # parse each element of bash array flag_list 

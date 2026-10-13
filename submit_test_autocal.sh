@@ -9,5 +9,5 @@ while read -r obsnum || [[ -n "$obsnum" ]]; do
     [[ -n "$obsnum" ]] || continue
 
     echo "Submitting test_autocal for $obsnum"
-    sbatch test_autocal.sh "$obsnum"
+    sbatch --export=ALL test_autocal.sh "$obsnum"
 done < "${testdir}/${obslist}"
