@@ -41,6 +41,12 @@ tsigma=3
 imsize=8000
 metafits="${testdir}/${obsnum}/${obsnum}.metafits"
 
+# skip if already done without error
+if [[ -f "${rundir}/imaging.done" ]]; then
+    echo "Already completed: ${runname}; skipping."
+    exit 0
+fi
+
 # dynweight="natural"
 # scale=$(echo "0.6 / 157" | bc -l)
 basescale=0.6 # why? 
