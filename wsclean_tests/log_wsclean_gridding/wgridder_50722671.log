@@ -1,0 +1,118 @@
+/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/wsclean-3.4-kflqz7ze2dm2uhdbsivhmbmo7lnannqj/bin/wsclean
+
+WSClean version 3.4 (2023-10-11)
+This software package is released under the GPL version 3.
+Author: André Offringa (offringa@gmail.com).
+
+EveryBeam is available.
+IDG is available.
+WGridder is available.
+[CRAYBLAS_WARNING] Application linked against multiple cray-libsci libraries
+/opt/gleamx-python/bin/pyhead.py:179: SyntaxWarning: "\?" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\?"? A raw string is also an option.
+  template2=re.sub("\?",".",template)
+/opt/gleamx-python/bin/pyhead.py:180: SyntaxWarning: "\*" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\*"? A raw string is also an option.
+  template3=re.sub("\*",".*?",template2)
+Traceback (most recent call last):
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/__init__.py", line 23, in <module>
+    from . import multiarray
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/multiarray.py", line 10, in <module>
+    from . import overrides
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/overrides.py", line 8, in <module>
+    from numpy.core._multiarray_umath import (
+        add_docstring,  _get_implementing_args, _ArrayFunctionDispatcher)
+ModuleNotFoundError: No module named 'numpy.core._multiarray_umath'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/gleamx-python/bin/pyhead.py", line 4, in <module>
+    from astropy.io import fits
+  File "/opt/gleamx-python/lib/python3.14/site-packages/astropy/__init__.py", line 13, in <module>
+    from astropy.utils.system_info import system_info
+  File "/opt/gleamx-python/lib/python3.14/site-packages/astropy/utils/__init__.py", line 20, in <module>
+    from .misc import *
+  File "/opt/gleamx-python/lib/python3.14/site-packages/astropy/utils/misc.py", line 25, in <module>
+    import numpy as np
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/__init__.py", line 139, in <module>
+    from . import core
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.14 from "/opt/gleamx-python/bin/python"
+  * The NumPy version is: "1.25.2"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: No module named 'numpy.core._multiarray_umath'
+
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 238, in partial_apport_excepthook
+    return apport_excepthook(binary, exc_type, exc_obj, exc_tb)
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 152, in apport_excepthook
+    os.open(pr_filename, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o640), "wb"
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 30] Read-only file system: '/var/crash/_opt_gleamx-python_bin_pyhead.py.27938.crash'
+
+Original exception was:
+Traceback (most recent call last):
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/__init__.py", line 23, in <module>
+    from . import multiarray
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/multiarray.py", line 10, in <module>
+    from . import overrides
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/overrides.py", line 8, in <module>
+    from numpy.core._multiarray_umath import (
+        add_docstring,  _get_implementing_args, _ArrayFunctionDispatcher)
+ModuleNotFoundError: No module named 'numpy.core._multiarray_umath'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/gleamx-python/bin/pyhead.py", line 4, in <module>
+    from astropy.io import fits
+  File "/opt/gleamx-python/lib/python3.14/site-packages/astropy/__init__.py", line 13, in <module>
+    from astropy.utils.system_info import system_info
+  File "/opt/gleamx-python/lib/python3.14/site-packages/astropy/utils/__init__.py", line 20, in <module>
+    from .misc import *
+  File "/opt/gleamx-python/lib/python3.14/site-packages/astropy/utils/misc.py", line 25, in <module>
+    import numpy as np
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/__init__.py", line 139, in <module>
+    from . import core
+  File "/software/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/py-numpy-1.25.2-rn4vawsh6jnutmk7jadnb5mx62owcimp/lib64/python3.11/site-packages/numpy/core/__init__.py", line 49, in <module>
+    raise ImportError(msg)
+ImportError: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy C-extensions failed. This error can happen for
+many reasons, often due to issues with your setup or how NumPy was
+installed.
+
+We have compiled some common reasons and troubleshooting tips at:
+
+    https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
+Please note and check the following:
+
+  * The Python version is: Python3.14 from "/opt/gleamx-python/bin/python"
+  * The NumPy version is: "1.25.2"
+
+and make sure that they are the versions you expect.
+Please carefully study the documentation linked above for further help.
+
+Original error was: No module named 'numpy.core._multiarray_umath'
+

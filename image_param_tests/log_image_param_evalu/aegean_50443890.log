@@ -1,0 +1,25 @@
+[32;20mINFO[0m 2026-10-05 22:57:29.705 BANE - main: This is BANE v1.10.1-(2024-12-09)
+[33;20mWARNING[0m 2026-10-05 22:57:29.706 BANE - main: Adjusting --stripes 255 -> 8 to avoid hanging your system
+[32;20mINFO[0m 2026-10-05 22:57:29.718 BANE - filter_image: using grid_size (21, 21), box_size (126, 126)
+[32;20mINFO[0m 2026-10-05 22:57:29.718 BANE - filter_image: on data shape (8000, 8000)
+[32;20mINFO[0m 2026-10-05 22:57:29.718 BANE - filter_mc_sharemem: using 9 cores
+[32;20mINFO[0m 2026-10-05 22:57:29.718 BANE - filter_mc_sharemem: using 8 stripes
+[32;20mINFO[0m 2026-10-05 22:57:47.865 BANE - filter_image: done
+[32;20mINFO[0m 2026-10-05 22:57:48.190 BANE - write_fits: Wrote /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_bkg.fits
+[32;20mINFO[0m 2026-10-05 22:57:48.512 BANE - write_fits: Wrote /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_rms.fits
+[32;20mINFO[0m 2026-10-05 22:57:52.670 aegean - main: This is Aegean 2.3.5-(2024-07-28)
+[32;20mINFO[0m 2026-10-05 22:57:52.675 aegean - main: Using 9 cores
+[32;20mINFO[0m 2026-10-05 22:57:52.676 aegean - main: Found background /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_bkg.fits
+[32;20mINFO[0m 2026-10-05 22:57:52.676 aegean - main: Found noise /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_rms.fits
+[32;20mINFO[0m 2026-10-05 22:57:52.676 aegean - main: Finding sources.
+[32;20mINFO[0m 2026-10-05 22:57:52.995 source_finder - load_globals: Loading background data from file /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_bkg.fits
+[32;20mINFO[0m 2026-10-05 22:57:53.317 source_finder - load_globals: Loading rms data from file /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_rms.fits
+[32;20mINFO[0m 2026-10-05 22:57:53.706 source_finder - find_sources_in_image: beam = 78.13'' x 63.45'' at 17.52deg
+[32;20mINFO[0m 2026-10-05 22:57:53.706 source_finder - find_sources_in_image: seedclip=5.0
+[32;20mINFO[0m 2026-10-05 22:57:53.706 source_finder - find_sources_in_image: floodclip=4.0
+[32;20mINFO[0m 2026-10-05 22:57:54.725 source_finder - find_sources_in_image: Found 10731 islands
+[32;20mINFO[0m 2026-10-05 22:57:54.725 source_finder - find_sources_in_image: Begin fitting
+[32;20mINFO[0m 2026-10-05 22:59:18.610 source_finder - find_sources_in_image: Fit 10858 sources
+[32;20mINFO[0m 2026-10-05 22:59:18.616 aegean - main: found 10858 sources total
+[32;20mINFO[0m 2026-10-05 22:59:18.740 catalogs - write_catalog: wrote /scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_sources_comp.fits
+['/opt/gleamx-python/bin/aegean', '--cores', '9', '--autoload', '--seedclip', '5', '--floodclip', '4', '--table', '/scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image_sources.fits', '/scratch/pawsey0272/gcchen/test3_image_parameters/1453810440_robust0_minuv100_tukey100/1453810440_robust0_minuv100_tukey100-MFS-image.fits']
