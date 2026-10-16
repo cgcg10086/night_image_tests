@@ -1,9 +1,0 @@
-[32;20mINFO[0m 2026-10-16 10:58:03.423 BANE - main: This is BANE v1.10.1-(2024-12-09)
-[33;20mWARNING[0m 2026-10-16 10:58:03.424 BANE - main: Adjusting --stripes 255 -> 8 to avoid hanging your system
-[32;20mINFO[0m 2026-10-16 10:58:03.437 BANE - filter_image: using grid_size (17, 17), box_size (102, 102)
-[32;20mINFO[0m 2026-10-16 10:58:03.437 BANE - filter_image: on data shape (8000, 8000)
-[32;20mINFO[0m 2026-10-16 10:58:03.437 BANE - filter_mc_sharemem: using 9 cores
-[32;20mINFO[0m 2026-10-16 10:58:03.437 BANE - filter_mc_sharemem: using 8 stripes
-[32;20mINFO[0m 2026-10-16 10:58:21.454 BANE - filter_image: done
-[32;20mINFO[0m 2026-10-16 10:58:21.849 BANE - write_fits: Wrote /scratch/pawsey0272/gcchen/test3_image_parameters/1437423080/1437423080_robust-1_minuv0_tukey900/1437423080_robust-1_minuv0_tukey900-MFS-image_bkg.fits
-[32;20mINFO[0m 2026-10-16 10:58:22.268 BANE - write_fits: Wrote /scratch/pawsey0272/gcchen/test3_image_parameters/1437423080/1437423080_robust-1_minuv0_tukey900/1437423080_robust-1_minuv0_tukey900-MFS-image_rms.fits
