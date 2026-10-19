@@ -6,7 +6,7 @@ from matplotlib.colors import LogNorm
 obsnum = "1447262000"
 ms_path = Path(f"/scratch/pawsey0272/gcchen/test3_image_parameters/{obsnum}/{obsnum}.ms")
 reference_mhz = 200.0
-uvmin_choices = [50, 100, 300, 600, 900]
+uvmin_choices = [0, 30, 50, 75, 100, 300, 600, 900]
 chunk_rows = 1000
 bin_width = 25.0                 # wavelengths; equal-width radial bins
 zoom_max = 2000.0                # wavelengths
