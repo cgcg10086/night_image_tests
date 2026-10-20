@@ -19,8 +19,8 @@ robust=$2 # test -2 to 0.5, +0.5
 minuv=$3 # baseline inner cut in \lambda 
 tukey=$4 # baseline cut inner edge smoothening taper in \lambda 
 
-# testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
-testdir="/scratch/pawsey0272/gcchen/test3_image_parameters_run1_coarse"
+testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
+# testdir="/scratch/pawsey0272/gcchen/test3_image_parameters_run1_coarse"
 
 
 runname="${obsnum}_robust${robust}_minuv${minuv}_tukey${tukey}"
@@ -88,7 +88,7 @@ singularity exec "$GXCONTAINER" wsclean \
   -taper-inner-tukey "${tukey}" \
   ${multiscale} \
   -nmiter 3 \
-  -niter 500000 \
+  -niter 100000 \
   -auto-mask "$msigma" \
   -auto-threshold "$tsigma" \
   -local-rms \

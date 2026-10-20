@@ -8,6 +8,8 @@
 #SBATCH --output=applycal_%j.log
 #SBATCH --error=applycal_%j.log
 
+set -euo pipefail
+
 module load singularity/4.1.0-slurm
 
 obsnum=$1

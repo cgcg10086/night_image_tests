@@ -8,13 +8,15 @@
 #SBATCH --output=uvflag_%j.log
 #SBATCH --error=uvflag_%j.log
 
+set -euo pipefail
+
 module load singularity/4.1.0-slurm
 
 obsnum=$1
 column="CORRECTED_DATA"  
 testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
 
-cd "${testdir}/${obsnum}" 
+cd "${testdir}/${obsnum}" || exit 1
 
 # ms_flag_by_uvdist.py "${obsnum}.ms" ${column} -a
 # this runs the ms_flag_by_uvdist.py inside the container's PATH 

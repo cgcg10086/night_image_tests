@@ -8,9 +8,9 @@
 #SBATCH --output=autoflag_%j.log
 #SBATCH --error=autoflag_%j.log
 
-module load singularity/4.1.0-slurm
+set -euo pipefail
 
-set -u
+module load singularity/4.1.0-slurm
 
 obsnum=$1
 flags=$2 # additional tiles to be flagged (after inspect autocal solution) 

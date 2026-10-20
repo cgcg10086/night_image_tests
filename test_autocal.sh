@@ -28,15 +28,15 @@ if [[ ! -d "${obsnum}.ms" && -d "${backup}" ]]; then
     cp -r "${backup}" "${obsnum}.ms" 
 fi
 
-# backup original copy 
-# if [[ ! -d "${backup}" ]]; then
-#     echo "create a backup copy ${backup}..."
-#     cp -r "${obsnum}.ms" ${backup}
-# fi 
+backup original copy 
+if [[ ! -d "${backup}" ]]; then
+    echo "create a backup copy ${backup}..."
+    cp -r "${obsnum}.ms" ${backup}
+fi 
 
 # use ram copy
 mkdir -p $tmpdir
-cp -rf "${obsnum}.ms" "${tmpdir}"
+cp -rL "${obsnum}.ms" "${tmpdir}"
 mst="$tmpdir/${obsnum}.ms"
 
 # Inspect the phase centre and any existing shift.
