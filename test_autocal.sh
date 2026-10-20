@@ -55,6 +55,7 @@ fi
 # singularity exec "$GXCONTAINER" chgcentre "${mst}"
 
 # refernece antenna: $2 or select any working one 
+# The unquoted $coords splits the output into the two required arguments
 if [[ -z "${refant}" ]]; then
 refant=$(
     singularity exec "$GXCONTAINER" python3 - "${obsnum}.metafits" <<'PY'
@@ -105,7 +106,10 @@ singularity run $GXCONTAINER hyperdrive \
     # "${solutions}" # if cannot create "${solutions%.bin}_ref.bin", plot "${solutions}"
 
 
+# remove pre-flagged copy to avoid nested files later
+rm -rf -- "${obsnum}.ms" 
 # remove ram copy 
 # cp -rf "${mst}/." "${obsnum}.ms/" # overwrites matching files but does not remove extra files already in the destination
-cp -r ${mst} ${obsnum}.ms
-rm -r $tmpdir
+mv -- "${mst}" "${obsnum}.ms"
+# Remove the now-empty temporary directory.
+rmdir -- "${tmpdir}"

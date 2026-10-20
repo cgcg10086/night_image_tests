@@ -20,6 +20,6 @@ flags=$2
 
 bash "test_autoflag.sh" "$obsnum" "$flags"
 bash "test_autocal.sh" "$obsnum"
-echo "Can still change flag before applycal."
+echo "To change flag, start from the beginning using $obsnum.ms_backup."
 # bash "test_applycal.sh" "$obsnum"
 # bash "test_uvflag.sh" "$obsnum"
