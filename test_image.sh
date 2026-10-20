@@ -19,7 +19,9 @@ robust=$2 # test -2 to 0.5, +0.5
 minuv=$3 # baseline inner cut in \lambda 
 tukey=$4 # baseline cut inner edge smoothening taper in \lambda 
 
-testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
+# testdir="/scratch/pawsey0272/gcchen/test3_image_parameters"
+testdir="/scratch/pawsey0272/gcchen/test3_image_parameters_run1_coarse"
+
 
 runname="${obsnum}_robust${robust}_minuv${minuv}_tukey${tukey}"
 rundir="${testdir}/$obsnum/${runname}"
@@ -61,9 +63,16 @@ scale=$(echo "$basescale / $chan" | bc -l)
 echo "chan=${chan}, scale=${scale}"
 
 # use ram copy
-mkdir -p "${tmpdir}"
-cp -rf "${testdir}/${obsnum}/${obsnum}.ms" "$tmpdir/"
+mkdir "${tmpdir}"
+cp -rL "${testdir}/${obsnum}/${obsnum}.ms" "$tmpdir/" # -L copies the linked files to the new location, so that the MS is independent of the original MS. 
 mst="${tmpdir}/${obsnum}.ms"
+
+if [[ -L "$mst" || ! -f "$mst/table.dat" ]]; then
+    echo "ERROR: temporary MS is not an independent MS directory."
+    exit 1
+fi
+
+echo "Working MS: $(readlink -f "$mst")"
 
 
 cd "${rundir}"
@@ -79,9 +88,11 @@ singularity exec "$GXCONTAINER" wsclean \
   -taper-inner-tukey "${tukey}" \
   ${multiscale} \
   -nmiter 3 \
-  -niter 10000000 \
+  -niter 500000 \
   -auto-mask "$msigma" \
   -auto-threshold "$tsigma" \
+  -local-rms \
+  -local-rms-window 200 \
   -pol I \
   -join-channels \
   -channels-out 4 \
