@@ -26,6 +26,9 @@ rundir="${testdir}/$obsnum/${runname}"
 
 tmpdir="/tmp/slurm_image_${GXUSER}_${runname}_${SLURM_JOB_ID}" # use ram copy with unique names! 
 
+multiscale="-multiscale -mgain 0.85 -multiscale-gain 0.15" # If you really want to use multiscale.
+# multiscale="-mgain 0.85" # For transient searches, we can be off with not using multiscale.
+
 datacolumn="CORRECTED_DATA"
 # WSClean suffixes for subchannels and MFS
 # subchans="MFS 0000 0001 0002 0003"
@@ -47,19 +50,22 @@ if [[ -f "${rundir}/imaging.done" ]]; then
     exit 0
 fi
 
+mkdir -p "${rundir}"
+
 # dynweight="natural"
 # scale=$(echo "0.6 / 157" | bc -l)
 basescale=0.6 # why? 
-chan="$(singularity exec "$GXCONTAINER" pyhead.py -p CENTCHAN ${metafits} | awk '{print $3}')"
+# chan="$(singularity exec "$GXCONTAINER" pyhead.py -p CENTCHAN ${metafits} | awk '{print $3}')"
+chan="$(singularity exec "$GXCONTAINER" pyhead.py -p CENTCHAN "${metafits}" | awk '{print $3}')"
 scale=$(echo "$basescale / $chan" | bc -l)
 echo "chan=${chan}, scale=${scale}"
 
 # use ram copy
-mkdir -p $tmpdir
+mkdir -p "${tmpdir}"
 cp -rf "${testdir}/${obsnum}/${obsnum}.ms" "$tmpdir/"
 mst="${tmpdir}/${obsnum}.ms"
 
-mkdir "${rundir}"
+
 cd "${rundir}"
 
 # image test: input MS is in /tmp, but output images go directly to $rundir
@@ -69,9 +75,9 @@ singularity exec "$GXCONTAINER" wsclean \
   -size "$imsize" "$imsize" \
   -scale "${scale}deg" \
   -weight briggs "$robust" \
-  -minuv-l ${minuv} \
-  -taper-inner-tukey ${tukey} \
-  -mgain 0.85 \
+  -minuv-l "${minuv}" \
+  -taper-inner-tukey "${tukey}" \
+  ${multiscale} \
   -nmiter 3 \
   -niter 10000000 \
   -auto-mask "$msigma" \
@@ -81,14 +87,19 @@ singularity exec "$GXCONTAINER" wsclean \
   -channels-out 4 \
   -fit-spectral-pol 2 \
   -save-source-list \
-  -data-column ${datacolumn} \
+  -data-column "${datacolumn}" \
   "${mst}"
 
 # copy ram copy to rundir, then remove ram copy 
-# do we still need the *.ms though? 
-echo "Copying ${obsnum}.ms from ram copy to ${rundir}/"
-mv "${mst}" "${rundir}/"
-rmdir $tmpdir # rmdir removes the directory only if it is empty
+# do we still need the *.ms though? Takes too much space for parameter test. 
 
-# add something to check if previous run compelete then skip re-run by default 
+# echo "Copying ${obsnum}.ms from ram copy to ${rundir}/"
+# mv "${mst}" "${rundir}/"
+# rmdir $tmpdir # rmdir removes the directory only if it is empty
+
+echo "For image test: did not copy ${obsnum}.ms from ram copy to ${rundir}/ to save space."
+rm -rf -- "${mst}"
+rmdir -- "${tmpdir}"
+
+# add something to check if previous run compelete then skip rerun by default 
 touch "${rundir}/imaging.done"
