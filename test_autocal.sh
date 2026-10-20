@@ -29,10 +29,10 @@ if [[ ! -d "${obsnum}.ms" && -d "${backup}" ]]; then
 fi
 
 # backup original copy 
-if [[ ! -d "${backup}" ]]; then
-    echo "create a backup copy ${backup}..."
-    cp -r "${obsnum}.ms" ${backup}
-fi 
+# if [[ ! -d "${backup}" ]]; then
+#     echo "create a backup copy ${backup}..."
+#     cp -r "${obsnum}.ms" ${backup}
+# fi 
 
 # use ram copy
 mkdir -p $tmpdir
