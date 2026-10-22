@@ -12,7 +12,7 @@ robust_choices=(-0.4 -0.3 -0.2 -0.1 0 0.1 0.2 0.3 0.4)
 minuv_choices=(0 10 20 30 40 50 60 70 80 100 120 160 200 250 300)
 tukey_choices=(0 50 100 200 400)
 
-batch_limit=600
+batch_limit=300
 submitted_in_batch=0
 batch_job_ids=()
 active_job_names=""
